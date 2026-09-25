@@ -18,7 +18,7 @@ DevRel을 했고 지금은 AX를 하는 저자의 조망서.
 - **웹 버전**: [ksangki.github.io/devrel-next](https://ksangki.github.io/devrel-next/)
 - **EPUB**: [`epub/DevRel-Next-v1.2.0.epub`](epub/DevRel-Next-v1.2.0.epub)
 - **책 소개**: [BOOK.md](BOOK.md)
-- **발표 자료**: [1시간 발표용 슬라이드 39장](https://ksangki.github.io/devrel-next/presentation/)
+- **발표 자료**: [1시간 발표용 슬라이드 40장](https://ksangki.github.io/devrel-next/presentation/) — 장마다 "쉽게 말하면" 비유 한 줄
 
 ## 차례
 - 서문
