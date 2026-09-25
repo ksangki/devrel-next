@@ -6,12 +6,15 @@
 
 DevRel을 했고 지금은 AX를 하는 저자의 조망서.
 
-> **v1.0.1은 저자 검토 전의 1차 초고다.** 사례와 수치는 2026년 9월 시점의 공개 자료 기준이며, 개정판에서 저자 경험과 보완이 더해질 예정이다.
+> **v1.1.0은 저자 검토 전의 1차 초고(개정판)다.** 사례와 수치는 2026년 9월 시점의 공개 자료 기준이며, 개정판에서 저자 경험과 보완이 더해질 예정이다.
 
 ## 읽기
 
+**v1.1.0 개정:** DevRel 당사자 1인칭 글 13건 보강(1·2·4장), 그림 19점·표 18개 추가(전권 연번), 참고문헌 전 항목 링크.
+
+
 - **웹 버전**: [ksangki.github.io/devrel-next](https://ksangki.github.io/devrel-next/)
-- **EPUB**: [`epub/DevRel-Next-v1.0.1.epub`](epub/DevRel-Next-v1.0.1.epub)
+- **EPUB**: [`epub/DevRel-Next-v1.1.0.epub`](epub/DevRel-Next-v1.1.0.epub)
 - **책 소개**: [BOOK.md](BOOK.md)
 
 ## 차례
@@ -47,6 +50,6 @@ DevRel을 했고 지금은 AX를 하는 저자의 조망서.
 
 ## 책 정보
 
-- 저자: 김상기 · v1.0.1 (1차 초고, 2026-09-25) · 한국어 · EPUB 3 (epubcheck 검증)
+- 저자: 김상기 · v1.1.0 (1차 초고 개정, 2026-09-25) · 그림 19점 · 표 18개 · 참고문헌 173항목(전부 링크) · 한국어 · EPUB 3 (epubcheck 검증)
 - 라이선스: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko)
 - 제작: [book-writer 하네스](https://github.com/tobyilee/book-writer) v1.11.0

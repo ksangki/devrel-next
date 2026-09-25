@@ -14,16 +14,21 @@
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17121f;--text:#ece6f0;--muted:#a99cb6;--line:#342a40;--accent:#ff8a6b;--panel:#211a2c;--code:#241c30}}
 :root[data-theme="dark"]{--bg:#17121f;--text:#ece6f0;--muted:#a99cb6;--line:#342a40;--accent:#ff8a6b;--panel:#211a2c;--code:#241c30}
 html{-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--text);margin:0 auto;max-width:760px;padding:24px 16px 80px;
+body{background:var(--bg);color:var(--text);margin:0 auto;max-width:820px;padding:24px 16px 80px;
  font-family:'Pretendard','Apple SD Gothic Neo','Noto Sans KR',sans-serif;font-size:17px;line-height:1.85;word-break:keep-all;overflow-wrap:anywhere}
 h1,h2,h3{line-height:1.35;text-wrap:balance}
 h1{font-size:1.9rem;margin-top:3.2rem;border-bottom:2px solid var(--accent);padding-bottom:.4rem}
 h2{font-size:1.35rem;margin-top:2.4rem} h3{font-size:1.1rem}
 a{color:var(--accent)} blockquote{margin:1.2rem 0;padding:.6rem 1rem;border-left:4px solid var(--accent);background:var(--panel);color:var(--text)}
-table{border-collapse:collapse;display:block;overflow-x:auto;max-width:100%;font-size:.92rem;margin:1.2rem 0}
-th,td{border:1px solid var(--line);padding:.45rem .65rem;vertical-align:top} th{background:var(--panel)}
-img,svg{max-width:100%;height:auto} figure{margin:1.6rem 0;text-align:center}
-figure img{background:#fff;border-radius:8px;padding:8px} figcaption{color:var(--muted);font-size:.9rem}
+.tbl{overflow-x:auto;margin:1.6rem 0 .4rem;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;font-size:.9rem;line-height:1.6}
+th,td{border-bottom:1px solid var(--line);padding:.55rem .75rem;vertical-align:top;text-align:left}
+th{background:var(--panel);font-weight:700;white-space:nowrap} tbody tr:nth-child(even) td{background:color-mix(in srgb,var(--panel) 45%,transparent)}
+tbody tr:last-child td{border-bottom:0}
+p.tcap{color:var(--muted);font-size:.88rem;text-align:center;margin:.3rem 0 1.8rem} p.tcap b,figcaption b{color:var(--accent)}
+img,svg{max-width:100%;height:auto} figure{margin:2rem 0;text-align:center}
+figure img{display:block;margin:0 auto;border-radius:10px;border:1px solid var(--line);background:#fbf7f2}
+figcaption{color:var(--muted);font-size:.88rem;margin-top:.6rem}
 code{background:var(--code);padding:.1em .3em;border-radius:4px} pre{background:var(--code);padding:1rem;overflow-x:auto}
 hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
 .cover-hero{text-align:center;margin:8px 0 32px} .cover-hero img{max-width:320px;width:70%;border-radius:10px;box-shadow:0 12px 32px rgba(0,0,0,.25)}
@@ -32,7 +37,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
 </style>
 </head>
 <body>
-<div class="cover-hero"><img src="cover.png" alt="「DevRel Next — 코드 너머의 관계」 표지" /><div class="dl"><a href="epub/DevRel-Next-v1.0.1.epub">EPUB 내려받기</a><a href="BOOK.md">책 소개</a><a href="https://github.com/ksangki/devrel-next">GitHub</a></div></div>
+<div class="cover-hero"><img src="cover.png" alt="「DevRel Next — 코드 너머의 관계」 표지" /><div class="dl"><a href="epub/DevRel-Next-v1.1.0.epub">EPUB 내려받기</a><a href="BOOK.md">책 소개</a><a href="https://github.com/ksangki/devrel-next">GitHub</a></div></div>
 
 
 <p><span id="cover.xhtml"></span></p>
@@ -54,14 +59,14 @@ Page</a></li>
 <h1>DevRel Next</h1>
 <section id="ch001.xhtml_코드-너머의-관계" class="level2">
 <h2>코드 너머의 관계</h2>
-<p><strong>저자:</strong> 김상기 <strong>판본:</strong> v1.0.1 ·
+<p><strong>저자:</strong> 김상기 <strong>판본:</strong> v1.1.0 ·
 2026-09-25</p>
 <hr />
 </section>
 <section id="ch001.xhtml_판권" class="level2">
 <h2>판권</h2>
 <p><strong>DevRel Next — 코드 너머의 관계</strong>
-<strong>판본:</strong> v1.0.1 <strong>발행일:</strong> 2026-09-25
+<strong>판본:</strong> v1.1.0 <strong>발행일:</strong> 2026-09-25
 <strong>저자:</strong> 김상기 <strong>식별자:</strong>
 urn:uuid:2e3ab927-3a44-4ede-b169-e0253729973c</p>
 <p>이 판본은 저자 검토 전의 1차 초고다. 사례와 수치는 2026년 9월 시점의
@@ -283,25 +288,97 @@ forums are dead, the new Discord is quiet.”</p>
 갈렸다. 한 사용자는 가치는 무언가를 만들고 문제를 푸는 데 있었지, “vague
 connection, curated vulnerability, or coordinating other coordinators”에
 있지 않았다고 썼다. 바로 아래에는 반대 댓글이 달렸다. 그 일은 늘 거기서
-조용히 일어나고 있었고, 당신이 몰랐을 뿐이라는 것이다. DevRel이 만드는
-가치가 무엇이냐는 질문은 떠나는 사람의 글 아래에서도 결론이 나지
-않았다.</p>
+조용히 일어나고 있었고, 당신이 몰랐을 뿐이라는 것이다.</p>
 <p>Salma만의 이야기가 아니다. 시계를 3년 앞으로 돌려보자. 2023년 7월
 25일, David Neal은 Bluesky에 이렇게 썼다. “My role has been eliminated.”
-그리고 창의적인 콘텐츠를 만드는 사람이 필요한 DevRel 팀을 아는지 물었다.
-제로 금리 시대가 끝나고 기술 기업들이 비용을 줄이던 시기의 1인칭
-기록이다.</p>
+그리고 창의적인 콘텐츠를 만드는 사람이 필요한 DevRel 팀을 아는지
+물었다.</p>
 <p>2026년 5월 27일에는 Raymond Camden이 비슷한 글을 올렸다. Webflow의
 구조조정으로 해고됐다는 소식이었다. 그가 다음 자리로 꼽은 목록이
 흥미롭다. 개발자 관계, 개발자 마케팅, 세일즈 엔지니어링. 그리고 한
 문장을 붙였다. “If you need someone who can speak Developer, hit me up.”
 자기가 가진 기술을 ’개발자의 언어를 할 줄 안다’는 능력으로 소개한
 셈이다.</p>
-<p>세 편지를 나란히 놓으면 찜찜한 공통점이 보인다. 셋 다 해고나 이탈을
+<p>그 사이에도 편지는 이어졌다. 2024년 2월 5일, Joey deVilla는 자기
+블로그 Global Nerdy에 이렇게 썼다. “I was laid off from my position as
+Senior Developer Advocate at Okta, along with around 400 others (a 7%
+reduction in the company’s size).” 해고를 예상하고 일을 조금 더 얹어두고
+있었다는 대목은 Salma의 두 번째 이유와 같은 모양이다.</p>
+<p>같은 해 10월 30일, dev.to에서 자신을 Developer Advocate로 소개하는
+Liz Acosta는 다음 자리 없이 일을 그만둔 이유를 이렇게 적었다. “It was a
+choice between burnout and another job search.”</p>
+<p>2026년의 편지에는 에이전트가 등장한다. 본인 사이트에 따르면 Google의
+Senior Developer Relations Engineer였던 Justin Poehnelt는 2026년 6월
+23일 X에 썼다. “Two months ago I was fired by Google for creating the
+Google Workspace CLI.” 그가 밝힌 해고 사유는 본인의 추정이고 Google 쪽
+입장은 확인되지 않았다. 한 사람의 사건이니 흐름으로 넓혀 읽지는
+말자.</p>
+<div class="tbl"><table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>이름</th>
+<th>당시 직함(본인 표현)</th>
+<th>날짜·플랫폼</th>
+<th>떠난 방식</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>David Neal</td>
+<td>—</td>
+<td>2023-07-25, Bluesky</td>
+<td>직무 폐지</td>
+</tr>
+<tr>
+<td>Joey deVilla</td>
+<td>Senior Developer Advocate at Okta</td>
+<td>2024-02-05, 블로그 Global Nerdy</td>
+<td>해고</td>
+</tr>
+<tr>
+<td>Liz Acosta</td>
+<td>Developer Advocate(dev.to 프로필)</td>
+<td>2024-10-30, dev.to</td>
+<td>번아웃으로 이탈</td>
+</tr>
+<tr>
+<td>Raymond Camden</td>
+<td>—</td>
+<td>2026-05-27, Bluesky</td>
+<td>구조조정으로 해고</td>
+</tr>
+<tr>
+<td>Justin Poehnelt</td>
+<td>전 Senior Developer Relations Engineer(본인 사이트)</td>
+<td>2026-06-23, X</td>
+<td>해고(사유는 본인 추정)</td>
+</tr>
+<tr>
+<td>Salma Alam-Naylor</td>
+<td>DevRel(현 프로필 Staff Engineer)</td>
+<td>2026-07-02, 블로그</td>
+<td>스스로 이탈</td>
+</tr>
+</tbody>
+</table></div>
+<p class="tcap"><b>표 1.</b> 이 장에서 읽은 작별 편지(날짜순)</p>
+<p>이 편지들을 나란히 놓으면 찜찜한 공통점이 보인다. 모두 해고나 이탈을
 말하는데, 누구도 개발자와 관계를 맺는 일이 필요 없어졌다고 쓰지 않았다.
-사라진 것은 자리였고, 그 자리를 떠받치던 예산과 전략이었다. 편지들은
-누가 무엇을 잃었는지를 분명히 적는다. 무엇이 죽었는지를 말하려면 숫자와
-설명을 더 모아야 한다.</p>
+이 편지들 대부분에서 사라진 것은 자리였고, 그 자리를 떠받치던 예산과
+전략이었다. 편지들은 누가 무엇을 잃었는지를 분명히 적는다. 무엇이
+죽었는지를 말하려면 숫자와 설명을 더 모아야 한다.</p>
+<figure>
+<img src="media/media/file0.svg"
+alt="그림 1. 2023~2026년 DevRel 당사자들이 남긴 글" />
+<figcaption aria-hidden="true"><b>그림 1.</b> 2023~2026년 DevRel 당사자들이
+남긴 글</figcaption>
+</figure>
 </section>
 <section id="ch004.xhtml_숫자로-본-위기-어떤-숫자를-믿을-수-있나"
 class="level2">
@@ -346,20 +423,61 @@ months”라고 쓴다. 100에서 73.9를 빼면 26.1%가 된다. 그런데 이�
 전체의 감원 수치다. 그 안에서 DevRel이 몇 명이었는지는 이 숫자들이
 알려주지 않는다. 특정 회사의 DevRel 팀이 통째로 사라졌다는 주장도
 있지만, 이 책의 조사에서 1차 자료로 확인된 사례는 없었다.</p>
+<div class="tbl"><table style="width:99%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>숫자</th>
+<th>무엇을 셌나</th>
+<th>출처·표본</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>14.6%</td>
+<td>그해 해고를 겪은 응답자 본인</td>
+<td>State of DevRel 2024, 유효 응답 310명, 자기선택</td>
+</tr>
+<tr>
+<td>18.1%</td>
+<td>해고로 인원이 줄어든 프로그램</td>
+<td>같은 조사</td>
+</tr>
+<tr>
+<td>22.1%</td>
+<td>재편을 겪은 프로그램</td>
+<td>같은 조사</td>
+</tr>
+<tr>
+<td>26.1%</td>
+<td>해고를 겪은 팀(100 - 73.9)</td>
+<td>Common Room 2023, 응답 136명, 벤더 설문</td>
+</tr>
+<tr>
+<td>약 6%</td>
+<td>Google 전체 직원 감원(2023-01)</td>
+<td>보도, DevRel 단독 수치 아님</td>
+</tr>
+</tbody>
+</table></div>
+<p class="tcap"><b>표 2.</b> 단위부터 확인할 위기의 숫자들</p>
 <p>하나 더 알아둘 것이 있다. 2026년 9월 시점에 State of Developer
 Relations의 2025년판은 찾을 수 없었다. 가장 최근의 체계적 설문이
 2024년에 멈춰 있다는 뜻이다. 그러니 2025~2026년의 변화는 설문보다 1인칭
 기록과 공개 자료로 읽을 수밖에 없다. 기억해두자. 숫자를 읽을 때는 조사한
 주체, 표본의 크기와 성격, 그리고 그 숫자의 단위가 개인인지 팀인지
-회사인지를 먼저 확인하는 편이 낫다. 이 책이 모든 수치에 라벨을 붙이는
-이유다.</p>
+회사인지를 먼저 확인하는 편이 낫다.</p>
 </section>
 <section id="ch004.xhtml_죽음을-설명하는-네-가지-이야기" class="level2">
 <h2>죽음을 설명하는 네 가지 이야기</h2>
 <p>숫자를 구분해 읽고 나면 다음 질문이 남는다. 왜 이런 일이 벌어졌는가?
 2024년부터 2025년 사이, 영어권 DevRel 실무자들은 이 질문에 서로 다른
 답을 내놓았다. 크게 네 가지 이야기로 정리할 수 있다.</p>
-<table style="width:99%;">
+<div class="tbl"><table style="width:99%;">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -399,14 +517,14 @@ success, or product teams—will continue to thrive.”</td>
 <td>“reports of DevRel’s death have been greatly exaggerated”</td>
 </tr>
 </tbody>
-</table>
+</table></div>
+<p class="tcap"><b>표 3.</b> 죽음을 설명하는 네 가지 이야기(2024~2025)</p>
 <p>첫째, <strong>거품 교정론</strong>이다. swyx(Shawn Wang)는 DevRel의
 쇠퇴를 제로 금리(ZIRP) 시기의 과잉 채용이 교정되는 현상으로 봤다. 돈이
 싸던 시절 성장만 좇던 회사들이 DevRel을 너무 많이, 너무 느슨하게 뽑았고,
-금리가 오르자 그 거품이 꺼졌다는 것이다. 그는 이 말을 이제야 소리 내어
-할 수 있게 됐다며, 업계 전체가 그 시절의 과잉에서 배울 것이 있다고 썼다.
-이 이야기의 핵심은 뒷부분에 있다. 개발자를 끌어오고 돕는 ‘해야 할 일’
-자체는 시대를 타지 않는다는 주장이다.</p>
+금리가 오르자 그 거품이 꺼졌다는 것이다. 이 이야기의 핵심은 뒷부분에
+있다. 개발자를 끌어오고 돕는 ‘해야 할 일’ 자체는 시대를 타지 않는다는
+주장이다.</p>
 <p>둘째, <strong>자기 실패론</strong>이다. Keith Casey는 DevRel이
 죽어가는 이유를 DevRel 자신에게서 찾았다. 자기 조직에 가치를 증명하는 데
 실패했다는 것이다. 2022년 연준의 금리 인상과 그에 따른 기업가치 하락이
@@ -433,6 +551,14 @@ swyx가 1년여 뒤 반대 방향의 글을 냈다. DevRel의 죽음에 대한 �
 뛰었다는 대목에는 본인도 과장일 수 있다는 단서를 달았다. 같은 사람이 1년
 사이에 ’죽음’과 ’귀환’을 모두 선언했다는 사실 자체가 이 시기의 혼란을
 보여준다.</p>
+<p>이 이야기들은 한 사람 안에서 겹치기도 한다. 2024년 2월 9일,
+Ambassador Labs를 떠나 개발자 도구 회사들에 DevRel 자문을 하던 Daniel
+Bryant는 Substack에 DevRel의 죽음이라는 말을 두고 “I think this is
+overblown.”이라고 썼다. 그는 과잉 채용이 있었다고 인정하면서, 가장 흔한
+근본 원인은 따로 짚었다. “a lack of clarity between DevRel efforts and
+business impact.” 그리고 이 직무가 제품 옹호와 커뮤니티 구축이라는 두
+역할로 갈라질 수 있다고 내다봤다. 세 이야기가 한 글에 함께 들어
+있다.</p>
 <p>네 이야기를 나란히 놓고 보자. 이들은 서로를 배제하지 않는다. 거품이
 꺼진 것도 사실일 수 있고, 가치 증명에 실패한 것도, 모양이 바뀌는 것도,
 새 수요가 생긴 것도 동시에 사실일 수 있다. 각각은 같은 현상의 다른 면을
@@ -445,6 +571,11 @@ swyx가 1년여 뒤 반대 방향의 글을 냈다. DevRel의 죽음에 대한 �
 <h2>측정할 수 없는 일의 운명</h2>
 <p>네 이야기 가운데 둘은 같은 지점을 가리킨다. 자기 실패론과 재구조화론
 모두 결국 ’측정’을 말한다. 이 문제를 조금 더 깊이 들어가보자.</p>
+<p>측정의 문제를 비용의 언어로 적은 사람도 있다. 거의 4년 동안 developer
+advocacy를 본업으로 해왔다는 Alexander Reelsen은 2023년 11월 28일
+DevRel을 떠나며 자기 블로그에 이렇게 썼다. “developer relations will
+always be seen as a cost center and thus one of the first functions that
+will be reduced or eliminated in case of cuts.”</p>
 <p>Keith Casey는 같은 글에서 이렇게 썼다. “If Marketing can’t measure
 your contribution, you don’t fit into their budget.” DevRel이 마케팅
 조직 안에 있다면, 마케팅이 셀 수 없는 기여는 예산표에 자리가 없다는
@@ -457,6 +588,12 @@ metric Y in this way.” 내가 X를 했고, 그것이 핵심 지표 Y를 이렇
 커뮤니티를 맡는 솔루션 엔지니어나 커뮤니티 고객 성공 담당자에는 공통점이
 하나 있었다. 그의 표현으로는 “Measurability”다. 그리고 이렇게 못 박았다.
 “The days of vague metrics like”community engagement” are over.”</p>
+<p>측정 문제가 곧 정의 문제라는 지적도 있었다. 2024년 3월 7일, Sam
+Julien은 X 스레드에서 지금이 “lay off devrel because there’s no
+attributable ROI” 국면처럼 보인다고 썼다. 원인으로는 역할의 정의를
+꼽았다. “it’s really hard to measure when the role is so poorly
+defined.” 이 스레드는 “#DevRel isn’t dead, it’s just evolving.”이라는
+문장으로 시작한다.</p>
 <p>Salma의 글은 이 문제의 반대편을 보여준다. 그는 커뮤니티 안에서의
 개발자 교육이 긴 게임이라고 썼다. 올바른 청중이 제품을 받아들이기까지
 시간과 인내와 실험이 필요한데, 리더십은 단기간에 측정 가능한 성공을
@@ -464,9 +601,7 @@ metric Y in this way.” 내가 X를 했고, 그것이 핵심 지표 Y를 이렇
 글로 Hacker News 첫 화면에 오르거나, 가벼운 짧은 영상으로 조회수를
 모으는 식이다. Salma는 그것을 성공으로 보고할 수는 있지만 “most likely
 the ‘wrong’ success”라고 불렀다. 셀 수 있는 것을 세다 보면 엉뚱한 것을
-키우게 된다. 그는 한때 DevRel이 비즈니스 가치에 이르는 경로를 자세히
-정리한 글을 쓰기도 했는데, 돌아보니 그 글이 이 직업을 정당화하려는 “a
-bit of a cry for help”처럼 느껴진다고 했다.</p>
+키우게 된다.</p>
 <p>이것이 몇 사람의 하소연일 뿐일까? Chris Reddington이 2026년 3월 11일
 공개한 연구는 조금 다른 각도를 준다. Warwick Business School MBA 논문을
 바탕으로 DevRel 리더 13명을 인터뷰했는데, 자기 전술 활동과 조직의 전략
@@ -481,16 +616,25 @@ Developer Relations Foundation(DRF)을 만들겠다고 발표했고, 2025년 8�
 25일 암스테르담의 Open Source Summit Europe에서 공식 결성했다. 2024년
 9월 결성 의향을 밝히며 내건 배경이 눈길을 끈다. “a lack of role clarity
 and difficulty in measuring impact.” 역할이 무엇인지 분명하지 않고,
-영향을 측정하기 어렵다는 것이다. 미션은 DevRel의 전문 실무를 끌어올리고
-이 일을 “a driver of business value”로 알리는 것이었다. 한 직업이 자기
-정의와 측정법을 공식 기구에 맡겨야 할 만큼 흔들리고 있었다는 방증으로
-읽을 수 있다.</p>
+영향을 측정하기 어렵다는 것이다. 한 직업이 자기 정의와 측정법을 공식
+기구에 맡겨야 할 만큼 흔들리고 있었다는 방증으로 읽을 수 있다.</p>
+<p>2년 뒤 Joey deVilla의 후속 기록도 있다. 2024년 Okta에서 해고됐던 그는
+2026년 7월 6일 블로그에 올린 DevRelCon NYC 2026 발표 초록에 이렇게 썼다.
+““DevRel ROI” means something specific now that it didn’t mean in the
+zero-interest 2010s …“. 그 뜻이 무엇으로 옮겨가고 있는지는 뒤에서 채용
+공고를 읽으며 보자.</p>
 <p>여기서 한 가지 의문이 생긴다. 측정하기 어려운 일은 모두 사라져야
 할까? 신뢰, 평판, 커뮤니티의 분위기처럼 원래 숫자로 옮기기 어려운 것들은
 어디에 자리를 잡아야 하는지, 이 질문은 이 책 곳곳에서 다시 돌아온다.
 지금은 한 가지만 짚어두자. 이 목소리들이 공통으로 가리키는 것은,
 2023~2024년의 감원기에 먼저 흔들린 자리가 기여를 숫자로 설명하지 못한
 자리였다는 진단이다.</p>
+<figure>
+<img src="media/media/file1.svg"
+alt="그림 2. 당사자들이 말한 측정 압박의 경로" />
+<figcaption aria-hidden="true"><b>그림 2.</b> 당사자들이 말한 측정 압박의
+경로</figcaption>
+</figure>
 </section>
 <section id="ch004.xhtml_무엇이-잘려나갔나" class="level2">
 <h2>무엇이 잘려나갔나</h2>
@@ -509,13 +653,15 @@ cut.”</p>
 체계처럼 시작 전과 후를 견줄 수 있는 일인지를 묻는다. 그 물음에 답하지
 못한 자리가 먼저 잘렸다는 것이다. Casey의 측정 압박, Salma의 정당화
 피로, Reddington의 13명 중 2명이 한 방향을 가리킨다.</p>
-<p>네 가지 이야기와 겹쳐 읽어도 이 절충안은 잘 들어맞는다. 거품 교정론이
-말한 과잉 채용은 ’숫자 없는 급여’가 가장 많이 늘어난 자리였을 것이고,
-자기 실패론이 탓한 것은 그 급여에 숫자를 붙이지 못한 일이었다.
-재구조화론은 숫자를 붙일 수 있는 다른 조직으로 옮겨 가라고 권했고,
-부활론이 가리킨 새 수요는 숫자가 분명한 일, 곧 제품 채택을 겨냥했다.</p>
-<p>물론 이 절충안도 답의 전부는 아니다. 남은 역할이 앞으로도 같은
-모양일지는 이 댓글이 다루는 범위 밖이다. Salma가 “AI is killing
+<p>같은 논리를 앞날로 늘인 목소리도 있다. 자신을 “Former DevRel leader
+at Twilio &amp; Circle”이라고 소개하는 Marcos Placona는 2026년 1월 초
+LinkedIn의 2026년 예측 목록에 이렇게 적었다. “DevRel headcount will
+shrink but salaries will rise. Companies will hire fewer people who can
+actually prove ROI and pay them 2x what they paid for teams that
+couldn’t measure impact.” 이것은 [예측]이고, 2026년 9월 시점에 맞았는지
+판정할 자료는 없다.</p>
+<p>물론 r/devrel의 이 절충안도 답의 전부는 아니다. 남은 역할이 앞으로도
+같은 모양일지는 이 댓글이 다루는 범위 밖이다. Salma가 “AI is killing
 developer education”이라고 쓴 부분, 곧 사람들이 정보를 찾는 방식 자체가
 바뀌었다는 진단은 측정 문제만으로 설명되지 않는다. 그는 사람들이 배우고
 정보를 찾는 방식이 달라지면서, 예전에 잘 통하던 전통적인 방법으로는 자기
@@ -603,6 +749,14 @@ Microsoft 직원 Dmitri Soshnikov는 2006년 Academic Developer Evangelist로
 말하는 동시에, 개발자를 대변해 제품팀에 목소리를 전한다. ‘Advocate’라는
 단어가 원래 ’옹호자’, ’대변인’이라는 뜻이라는 점을 떠올리면 이해하기
 쉽다. 누구를 옹호하느냐는 질문에 이 직함은 “양쪽 모두”라고 답한다.</p>
+<p>이 일을 직접 한 사람들의 정의도 같은 논리를 따른다. 2년 동안
+Developer Advocate로 일했다고 스스로 밝힌 Catalin Pit은 2023년 10월 31일
+블로그 글에서 이렇게 적었다. “A DA represents the company to the
+community and the community to the company.” Ashley Willis는 2025년 4월
+25일 블로그 글에서 조금 더 풀어 썼다. “we represent the voice of the
+developer inside the organization, and we represent the product to the
+developer community outside of it.” 2023년과 2025년의 당사자 문장이
+앞에서 본 업계의 설명과 같은 구조를 하고 있는 셈이다.</p>
 <p>여기서 흔히 빠지기 쉬운 오해가 하나 있다. 애드보킷이 에반젤리스트를
 몰아내고 그 자리를 차지했다고 생각하기 쉽다. 하지만 시간축 위에 놓고
 보면 모습이 다르다. 1984년에 설득이 있었고, 그 위에 2010년대를 지나며
@@ -621,7 +775,7 @@ class="level2">
 난감해진다. 1장에서 본 Lee Briggs가 이 일을 두고 “defies simple
 definition”이라고 쓴 것도 무리가 아니다. 회사마다, 연구자마다, 나라마다
 강조점이 조금씩 다르다. 몇 가지 정의를 나란히 놓고 살펴보자.</p>
-<table style="width:99%;">
+<div class="tbl"><table style="width:99%;">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -668,7 +822,8 @@ DR(Developer Relations)은 개발자에게 기업을 알리는 활동”</td>
 <td>블로그, 국내 통념의 한 예</td>
 </tr>
 </tbody>
-</table>
+</table></div>
+<p class="tcap"><b>표 4.</b> 회사·연구자·블로그가 내놓은 DevRel의 정의</p>
 <p>표를 천천히 읽어보면 흥미로운 점이 보인다. 이 일이 향하는 대상에
 대해서는 다섯 정의가 놀랄 만큼 같은 답을 한다. 서드파티 개발자, 플랫폼에
 기여하는 개발자, 개발자.</p>
@@ -713,29 +868,85 @@ Tushman은 1977년 <em>Administrative Science Quarterly</em>에 실린 논문
 퍼뜨린다. DevRel에 적용하면 여기에 반대 방향의 흐름이 하나 더 붙는다.
 조직 안의 사정을 바깥이 알아들을 수 있는 말로 옮기는 일이다.</p>
 <p>이 설명을 DevRel에 겹쳐보면 거의 그대로 들어맞는다. 앞 절 표의 Google
-미션이 쓴 “interface”라는 단어가 바로 이 자리를 가리킨다.</p>
-<figure><img src="media/media/file0.svg" alt="그림 1. 경계 역할로서의 DevRel —
-외부 개발자와 제품·엔지니어링·마케팅·영업을 잇는 자리" /><figcaption>그림 1. 경계 역할로서의 DevRel —
-외부 개발자와 제품·엔지니어링·마케팅·영업을 잇는 자리</figcaption></figure>
-<p>그림에서 DevRel에 연결된 선이 모두 양방향이라는 점에 주목하자.
+미션이 쓴 “interface”라는 단어가 바로 이 자리를 가리킨다. 소프트웨어
+개발자에서 DevRel로 경력을 옮겼다고 스스로 적은 Xe Iaso는 2023년 10월
+24일 블로그 글에서 같은 자리를 다리에 빗댔다. “At its heart, when you
+are DevRel, you are the bridge between the company and the community of
+developers …”</p>
+<figure>
+<img src="media/media/file2.svg"
+alt="그림 3. 경계 역할로서의 DevRel — 외부 개발자와 제품·엔지니어링·마케팅·영업을 잇는 자리" />
+<figcaption aria-hidden="true"><b>그림 3.</b> 경계 역할로서의 DevRel — 외부
+개발자와 제품·엔지니어링·마케팅·영업을 잇는 자리</figcaption>
+</figure>
+<p>그림 3에서 DevRel에 연결된 선이 모두 양방향이라는 점에 주목하자.
 제품팀이 새 API를 내놓으면 DevRel은 그것을 개발자가 쓸 수 있는 문서와
 예제, 데모로 번역한다. 반대로 개발자 커뮤니티에서 “이 API는 인증 흐름이
 너무 번거롭다”는 불만이 쌓이면, DevRel은 그 불만을 제품팀이 우선순위를
 매길 수 있는 요구사항의 언어로 번역한다. 마케팅과 영업을 향한 선에서도
 기술에 대한 설명과 시장의 사정이 함께 오간다.</p>
-<p>번역이라는 말을 조금 더 곱씹어보자. 번역은 한쪽의 맥락을 이해하고
-다른 쪽의 맥락에 맞게 다시 짜는 일이다. 개발자의 짜증 섞인 이슈 댓글을
-그대로 제품 회의에 가져가면 아무도 움직이지 않는다. 그 댓글 뒤에 있는
-사용 사례와 규모, 경쟁 제품과의 차이를 함께 전해야 우선순위가 된다.
-그래서 경계 역할을 맡은 사람에게는 양쪽 언어를 모두 하는 능력이
-필요하다. 이 자리에 기술 배경이 요구되는 이유도 여기서 짐작할 수
-있다.</p>
+<p>번역이라는 말을 조금 더 곱씹어보자. 앞에서 본 Ashley Willis도 같은
+글에서 이 일을 번역으로 설명했다. “We gather feedback, surface pain
+points, advocate for improvements, and translate between worlds.” 번역은
+한쪽의 맥락을 이해하고 다른 쪽의 맥락에 맞게 다시 짜는 일이다. 개발자의
+짜증 섞인 이슈 댓글을 그대로 제품 회의에 가져가면 아무도 움직이지
+않는다. 그 댓글 뒤에 있는 사용 사례와 규모, 경쟁 제품과의 차이를 함께
+전해야 우선순위가 된다. 그래서 경계 역할을 맡은 사람에게는 양쪽 언어를
+모두 하는 능력이 필요하다. 이 자리에 기술 배경이 요구되는 이유도 여기서
+짐작할 수 있다.</p>
 <p>그런데 경계 위의 자리에는 개념에서 곧바로 따라 나오는 곤란함이 있다.
 어느 한쪽에 완전히 속하지 않는다는 점이다. 그래서 양쪽 모두에게서 ’정말
 우리 편인가’라는 의심을 받기 쉽다. 조직도에서도 마찬가지다. 이 일이
 마케팅 밑에 있어야 하는지, 엔지니어링 밑에 있어야 하는지, 제품 조직 안에
-있어야 하는지는 회사마다 답이 다르다. 소속이 흔들리면 성과를 누가, 어떤
-잣대로 평가하느냐도 흔들린다.</p>
+있어야 하는지는 회사마다 답이 다르다. Chrome DevRel 팀을 두고 2024년 3월
+8일 X에 글을 쓴 Una Kravets는 이상적인 배치를 역할의 순서로 설명했다.
+“Ideally, DevRel should work closely with Eng and Product as a liaison
+for user needs, architect of the solution, test user to provide
+feedback, and only then a GTM strategist.” 사용자의 필요를 전하는
+연락책, 해법의 설계자, 피드백을 주는 시험 사용자를 거친 다음에야 시장
+전략가가 온다. 이 순서대로라면 DevRel은 제품 조직 가까이에 서게 된다.
+소속이 흔들리면 성과를 누가, 어떤 잣대로 평가하느냐도 흔들린다.</p>
+<p>이 절과 앞 절에서 읽은 당사자들의 문장을 한자리에 모아두자.</p>
+<div class="tbl"><table style="width:99%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>이름</th>
+<th>날짜·플랫폼</th>
+<th>이 일을 설명한 말(원문)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Catalin Pit</td>
+<td>2023-10-31, 블로그</td>
+<td>“represents the company to the community and the community to the
+company”</td>
+</tr>
+<tr>
+<td>Xe Iaso</td>
+<td>2023-10-24, 블로그</td>
+<td>“you are the bridge between the company and the community of
+developers …”</td>
+</tr>
+<tr>
+<td>Ashley Willis</td>
+<td>2025-04-25, 블로그</td>
+<td>“translate between worlds”</td>
+</tr>
+<tr>
+<td>Una Kravets</td>
+<td>2024-03-08, X</td>
+<td>“a liaison for user needs, architect of the solution, test user to
+provide feedback, and only then a GTM strategist”</td>
+</tr>
+</tbody>
+</table></div>
+<p class="tcap"><b>표 5.</b> DevRel 당사자들이 자기 일을 설명한 말</p>
 <p>이 문제는 곧바로 다음 질문으로 이어진다. 경계에서 만들어진 가치는
 어디에 기록될까? 번역이 잘되면 제품팀의 기능이 좋아지고, 영업팀의 계약이
 늘고, 마케팅의 메시지가 개발자에게 먹힌다. 성과는 대부분 다른 부서의
@@ -794,6 +1005,23 @@ environments”라고 정의했다. 이 개념이 처음 제안될 때부터 생
 분석한 Goggins 등의 2021년 연구가, 측정하기 쉬운 활동량 뒤에 있는 진짜
 질문을 이렇게 적었다. “How healthy and sustainable is this project in
 the context of its competitors or dependent projects?”</p>
+<p>이 일을 하는 사람들의 말도 기록으로 남았다. 앞에서 본 Una Kravets는
+같은 글에서 자기 팀의 방식을 이렇게 설명했다. “metrics are focused
+around ecosystem impact and not vanity metrics like video views.” 괄호
+속 한마디도 덧붙였다. “(Which yes, can be quite hard to quantify 😂)” 이
+팀의 기준은 생태계에 미친 영향이고, 그 영향은 수치로 옮기기 어렵다는
+고백이 함께 붙어 있다.</p>
+<p>Catalin Pit은 같은 글에서 개인 지표와 경력 경로가 없는 회사가 많다고
+쓰며 이렇게 덧붙였다. “You don’t know how to measure your performance.”
+Xe Iaso는 자기 성과를 두고 “you can start to observe (but not count) the
+results of the work.”라고 적었다. CHAOSS가 던진 건강에 관한 질문과 이
+당사자들의 고백은 같은 곳을 가리킨다.</p>
+<figure>
+<img src="media/media/file3.svg"
+alt="그림 4. DevRel 측정 틀의 계보 — 2012년 DX 정의부터 2024년 Orbit의 인수까지" />
+<figcaption aria-hidden="true"><b>그림 4.</b> DevRel 측정 틀의 계보 — 2012년 DX
+정의부터 2024년 Orbit의 인수까지</figcaption>
+</figure>
 <p>이 계보를 한 줄로 이어보면 흐름이 하나 보인다. 틀은 점점 정교해졌고,
 모두 같은 난제를 붙잡고 있었다. 경계에서 만든 가치를 어떻게 경계 너머의
 숫자와 연결할 것인가. 그 난제는 아직 풀리지 않았다.</p>
@@ -979,6 +1207,12 @@ clanker, broligarchy, taskmasking, glazing, aura farming 같은 말을 함께
 올렸고, 2025년을 기술을 받아들이는 흐름과 그에 저항하는 흐름이 함께
 드러난 해로 설명했다. 바이브 코딩은 그 가운데 기술을 받아들이는 쪽을
 대표하는 말로 뽑힌 셈이다.</p>
+<figure>
+<img src="media/media/file4.svg"
+alt="그림 5. 최종 사용자 프로그래밍에서 바이브 코딩까지 — 이 장이 짚은 다섯 시점" />
+<figcaption aria-hidden="true"><b>그림 5.</b> 최종 사용자 프로그래밍에서 바이브
+코딩까지 — 이 장이 짚은 다섯 시점</figcaption>
+</figure>
 <p>이 정의를 다시 읽어보자. 무엇이 빠져 있는가? 누가 그 일을 하는지가
 없다. 개발자라는 말도, 프로그래머라는 말도 들어 있지 않다. 사전의
 정의에서 주어 자리는 비어 있다. 자연어로 지시하는 사람이면 누구든 그
@@ -1001,7 +1235,7 @@ class="level2">
 <p>2025년부터 이른바 빌더 도구, 곧 자연어로 앱과 사이트를 만들어
 배포까지 해주는 도구들이 앞다퉈 숫자를 내놓았다. 한 표에 모으면 다음과
 같다.</p>
-<table>
+<div class="tbl"><table>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -1049,8 +1283,8 @@ class="level2">
 <td>언론 요약</td>
 </tr>
 </tbody>
-</table>
-<p>표 1. 빌더 도구의 공개 수치 (라벨은 출처 유형이다. 독립 기관이 검증한
+</table></div>
+<p class="tcap"><b>표 6.</b> 빌더 도구의 공개 수치 (라벨은 출처 유형이다. 독립 기관이 검증한
 수치는 이 표에 없다)</p>
 <p>숫자만 보면 아찔하다. 출범 1년을 맞은 회사가 연 2억 달러 규모의 반복
 매출을 말하고, 폐업을 걱정하던 회사가 다섯 달 만에 매출 규모를 수백 배로
@@ -1092,11 +1326,11 @@ class="level2">
 <p>Anthropic은 2025년 12월 3일 Claude Code에 대해 이렇게 발표했다. “just
 six months after becoming available to the public, it reached $1 billion
 in run-rate revenue.” 일반에 공개된 지 6개월 만에 연환산 매출 10억
-달러에 이르렀다는 것이다(1차 발표). 2026년 2월에는 25억 달러 이상이라는
-Reuters 보도가 이어졌다(언론 보도, Anthropic 원문 문장은 미대조).
-Cursor는 2026년 6월 초 연환산 매출 40억 달러에 이르렀고 그 약 75%가 기업
-고객에서 나온다고 보도됐다(언론, 익명 소식통 기반). 어느 쪽이든 이
-도구들의 주 고객은 회사에서 코드를 쓰는 사람들이다.</p>
+달러에 이르렀다는 것이다(1차 발표). 2026년 2월 12일 Anthropic은 Claude
+Code의 연환산 매출이 25억 달러를 넘었다고 밝혔다(1차 발표). Cursor는
+2026년 6월 초 연환산 매출 40억 달러에 이르렀고 그 약 75%가 기업 고객에서
+나온다고 보도됐다(언론, 익명 소식통 기반). 어느 쪽이든 이 도구들의 주
+고객은 회사에서 코드를 쓰는 사람들이다.</p>
 <p>GitHub의 숫자도 같은 방향을 가리킨다. Octoverse 2025(2025-10-28 발행,
 데이터 2024-09~2025-08)는 “180 million-plus developers”라고 적었다. 1년
 동안 새로 가입한 계정은 3,600만 개가 넘고 전년보다 23% 늘었다. 그리고
@@ -1125,6 +1359,13 @@ quite”였다. 거의 맞지만 딱 맞지는 않는 답. 매일 코드를 리�
 개발자가 있고, 그 사이를 수많은 사람이 채운다. 같은 문서, 같은 튜토리얼,
 같은 행사가 이 띠 전체에 한꺼번에 닿는다. 한쪽 끝에 맞춘 메시지는 다른
 쪽 끝에서 공허하게 들리기 쉽다.</p>
+<figure>
+<img src="media/media/file5.svg"
+alt="그림 6. DevRel이 마주한 청중의 띠 — 자연어로 첫 앱을 띄운 사람부터 AI를 의심하며 쓰는 전문 개발자까지" />
+<figcaption aria-hidden="true"><b>그림 6.</b> DevRel이 마주한 청중의 띠 —
+자연어로 첫 앱을 띄운 사람부터 AI를 의심하며 쓰는 전문
+개발자까지</figcaption>
+</figure>
 <p>이 띠 위의 사람들에게 공통으로 필요한 것에 대해, 연구자들의 답은
 의외로 한곳을 가리킨다.</p>
 </section>
@@ -1165,6 +1406,50 @@ code, while others examine and adapt generated outputs.” 코드를 거의
 결함을 자주 놓쳤다. 결론은 이렇다. “business professionals cannot
 reliably verify AI-generated data analyses on their own.” 만들 수 있게
 된 사람에게도 검증은 여전히 남은 숙제다.</p>
+<div class="tbl"><table style="width:99%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>연구</th>
+<th>대상·문헌 유형</th>
+<th>본 것</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Sarkar &amp; Drosos</td>
+<td>바이브 코딩 세션 영상 (PPIG 2025)</td>
+<td>전문성이 맥락 관리·빠른 코드 평가·전환 판단으로 옮겨간다</td>
+</tr>
+<tr>
+<td>Chou et al.</td>
+<td>바이브 코딩 영상 20개 (FSE 2026 게재 승인)</td>
+<td>코드를 거의 안 보는 사람부터 꼼꼼히 고치는 사람까지 퍼져 있고,
+디버깅은 “주사위 굴리기”</td>
+</tr>
+<tr>
+<td>Thorgeirsson et al.</td>
+<td>대학생 100명 (CHI 2026)</td>
+<td>글쓰기 능력과 CS 성취도가 성과를 예측한다 (학생 표본)</td>
+</tr>
+<tr>
+<td>Feldman &amp; Anderson</td>
+<td>비프로그래머 67명 통제 연구 (CHIWORK ’24)</td>
+<td>장벽은 기술적 의사소통의 여러 측면</td>
+</tr>
+<tr>
+<td>Virk &amp; Liu</td>
+<td>마케팅·영업 실무자 (VL/HCC 2025)</td>
+<td>AI가 만든 분석의 치명적 결함을 자주 놓친다</td>
+</tr>
+</tbody>
+</table></div>
+<p class="tcap"><b>표 7.</b> 새로 들어온 빌더에게 필요한 능력 — 이 절에서 본 연구 다섯
+편</p>
 <p>Lee Robinson은 2025년 7월, AI 교육을 새 일로 택하며 쓴 글에서 같은
 공백을 짚었다.</p>
 <blockquote>
@@ -1326,9 +1611,13 @@ problem directly. It’s not shopping. You have to already be there.” AI는
 도구뿐이다. 그러니 그 순간이 오기 전에 이미 거기 있어야 한다.</p>
 <p>이 문장이 DevRel에게 난감한 이유는 분명하다. DevRel의 오래된 기술은
 대부분 ’쇼핑하는 개발자’를 겨냥했다. 비교 글, 시작 가이드, 컨퍼런스
-부스, 데모가 모두 고르는 사람의 눈앞에 제품을 놓는 일이었다. 그런데
-고르는 순간이 사람의 눈앞에서 사라지면, 그 기술들은 어디에 쓰여야 할까?
-이 질문을 쥐고, 에이전트라는 독자가 어떻게 등장했는지부터
+부스, 데모가 모두 고르는 사람의 눈앞에 제품을 놓는 일이었다. 2026년 7월
+DevRelCon에서 처음 발표한 Danielle Washington도 dev.to
+회고(2026-07-28)에서 같은 과제를 적었다. “As developers begin using AI
+tools to discover products, evaluate options, and solve problems, our
+existing approaches to content and discoverability may need to change.”
+그렇다면 고르는 순간이 사람의 눈앞에서 사라지면, 그 기술들은 어디에
+쓰여야 할까? 이 질문을 쥐고, 에이전트라는 독자가 어떻게 등장했는지부터
 따라가보자.</p>
 </section>
 <section id="ch008.xhtml_에이전트를-위한-표준이-생긴-15개월"
@@ -1337,9 +1626,12 @@ class="level2">
 <p>에이전트를 위한 문서와 인터페이스는 생각보다 짧은 시간에 한꺼번에
 등장했다. 2024년 9월 3일부터 2025년 12월 9일까지, 15개월 남짓의
 일이다.</p>
-<figure><img src="media/media/file1.svg" alt="그림 1. 에이전트를 위한 표준·제품
-타임라인(2024-09~2025-12)" /><figcaption>그림 1. 에이전트를 위한 표준·제품
-타임라인(2024-09~2025-12)</figcaption></figure>
+<figure>
+<img src="media/media/file6.svg"
+alt="그림 7. 에이전트를 위한 표준·제품 타임라인(2024-09~2025-12)" />
+<figcaption aria-hidden="true"><b>그림 7.</b> 에이전트를 위한 표준·제품
+타임라인(2024-09~2025-12)</figcaption>
+</figure>
 <p>출발점은 2024년 9월 3일 Answer.AI의 Jeremy Howard가 낸 llms.txt
 제안이다. 제안서는 스스로를 이렇게 소개한다. “A proposal to standardise
 on using an <code>/llms.txt</code> file to provide information to help
@@ -1385,6 +1677,12 @@ Norman이 사용자 경험(UX)이라는 말을 만들었고, 2011년 Jeremiah Le
 자율적으로 상호작용하는 시대에 들어서니, 제품 경험을 에이전트를 위해
 따로 설계하기 시작해야 한다는 것이다. 그는 모든 소프트웨어 회사가 제품의
 AX를 의식적으로 설계하지 않으면 대체될 위험이 있다고까지 썼다.</p>
+<figure>
+<img src="media/media/file7.svg"
+alt="그림 8. 사용자 경험의 계보 — Biilmann의 UX·DX·AX에 Lawson의 정의와 가장 가까운 학술 개념을 더해" />
+<figcaption aria-hidden="true"><b>그림 8.</b> 사용자 경험의 계보 — Biilmann의
+UX·DX·AX에 Lawson의 정의와 가장 가까운 학술 개념을 더해</figcaption>
+</figure>
 <p>Biilmann은 반년쯤 뒤 X에 올린 글에서 실제 사례를 하나 들었다. Bolt가
 사용자가 로그인하기도 전에 Netlify 사이트를 먼저 배포해두는 방식, 이른바
 “Deploy first, claim later”다. 배포를 가입 앞에 두어, 에이전트가 먼저
@@ -1545,6 +1843,63 @@ Microsoft 개발자를 설문한 연구(IEEE Software, 동료 검토 논문, 응
 83명·유효 80명)에서 API를 배우는 방법으로 문서를 읽는다고 답한 사람은
 78%였다. 사람도 오래전부터 문서를 가장 먼저 읽었다. 이제 그 문서를
 에이전트도 함께 읽는다.</p>
+<div class="tbl"><table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>연구</th>
+<th>문헌 유형</th>
+<th>대상</th>
+<th>발견</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hsieh 등(2023)</td>
+<td>프리프린트</td>
+<td>도구 문서와 시범 예제 비교</td>
+<td>문서만 준 조건이 예제를 준 조건과 비슷하거나 나음</td>
+</tr>
+<tr>
+<td>Hasan 등(2026)</td>
+<td>프리프린트</td>
+<td>MCP 서버 103개, 도구 856개</td>
+<td>도구 설명의 97.1%에 스멜, 보강 시 성공률 중앙값 +5.85%p·실행 단계
++67.46%</td>
+</tr>
+<tr>
+<td>Gloaguen 등(2026)</td>
+<td>프리프린트</td>
+<td>저장소 컨텍스트 파일</td>
+<td>성공률 일반적 개선 없음, 추론 비용 평균 20%+ 증가, 비표준 관행
+명시에 유용</td>
+</tr>
+<tr>
+<td>Chatlatanagulchai 등(2025)</td>
+<td>프리프린트</td>
+<td>컨텍스트 파일 2,303개</td>
+<td>보안 요구 명시 14.8%</td>
+</tr>
+<tr>
+<td>Hasan 등(2026-04 개정판)</td>
+<td>프리프린트</td>
+<td>오픈소스 MCP 서버 1,899개</td>
+<td>일반 취약점 7.2%, 도구 오염 5.5%</td>
+</tr>
+<tr>
+<td>Robillard(2009)</td>
+<td>동료 검토 논문</td>
+<td>Microsoft 개발자 83명(유효 80명)</td>
+<td>API 학습 방법으로 문서 78%</td>
+</tr>
+</tbody>
+</table></div>
+<p class="tcap"><b>표 8.</b> 에이전트용 문서에 관한 연구 여섯 편</p>
 </section>
 <section id="ch008.xhtml_반론-llms.txt는-아무도-읽지-않는다"
 class="level2">
@@ -1588,14 +1943,15 @@ MCP가 가장 낫다고 했다. 또 다른 사용자는 AI를 쓰는 사람이 �
 “llms.txt가 표준이 됐다”고 말하기는 이르다. 2026년 9월 시점에 이 파일은
 여전히 제안이고, 관련 관행은 빠르게 바뀌고 있으니 공식 문서를 함께
 확인해두자.</p>
-<p>그리고 이 장을 닫기 전에 들어둘 목소리가 하나 더 있다. 2026년 9월
-18일, 에이전트가 제품을 쓸 수 있는지 점검해주는 도구 ax-check가 Hacker
-News에 소개되자 xena라는 사용자가 이런 댓글을 남겼다. “As someone that
-works for a company that gets a 100% score on ax-check, all the effort
-I’ve put into making it accessible for agents has not 10xed the growth
-numbers like I was told it would.” 같은 계정이 2024년 7월에는 막
-DevRel에 들어왔다며 불안을 털어놓았던 사람이다. 2년 사이 그는 에이전트를
-위한 일을 했고, 점수는 만점을 받았고, 약속받은 성장은 오지 않았다.</p>
+<p>그리고 이 장을 닫기 전에 들어둘 목소리가 하나 더 있다. 에이전트가
+제품을 쓸 수 있는지 점검해주는 도구 ax-check가 Hacker News에 소개된
+스레드에, 2026년 9월 18일 xena라는 사용자가 이런 댓글을 남겼다. “As
+someone that works for a company that gets a 100% score on ax-check, all
+the effort I’ve put into making it accessible for agents has not 10xed
+the growth numbers like I was told it would.” 같은 계정이 2024년 7월에는
+막 DevRel에 들어왔다며 불안을 털어놓았던 사람이다. 2년 사이 그는
+에이전트를 위한 일을 했고, 점수는 만점을 받았고, 약속받은 성장은 오지
+않았다.</p>
 <p>한 사람의 댓글로 AX 전체를 판정할 수는 없다. 하지만 이 문장은 이 장의
 모든 내용 위에 물음표를 하나 얹는다. 에이전트가 문서를 읽는다는 것과, 그
 독해가 제품의 성장으로 이어진다는 것 사이에는 아직 아무도 다리를 놓지
@@ -1660,6 +2016,12 @@ ever”라고 했다. 그런 프레임워크의 문서 트래픽이 40% 줄었�
 사람에서 모델로 옮겨가면 방문 기록은 남지 않는다. 문제는 Tailwind의 사업
 모델이 바로 그 방문 위에 서 있었다는 점이다. 문서가 유료 제품을 알리는
 유일한 입구였기 때문이다.</p>
+<figure>
+<img src="media/media/file8.svg"
+alt="그림 9. 문서가 유료 제품의 입구였던 Tailwind의 퍼널에 코딩 에이전트가 끼어든 자리" />
+<figcaption aria-hidden="true"><b>그림 9.</b> 문서가 유료 제품의 입구였던
+Tailwind의 퍼널에 코딩 에이전트가 끼어든 자리</figcaption>
+</figure>
 <p>전날 그가 PR에 남긴 댓글은 이 사정을 더 날카롭게 보여준다. “making it
 easier for LLMs to read our docs just means less traffic to our docs
 which means less people learning about our paid products and the
@@ -1781,6 +2143,59 @@ Block에서 오픈소스 DevRel을 이끌던 시절 연 바이브 코딩 대회 
 agents generate a tool.” 모델이 좋아지자 에이전트가 도구를 만들어내는
 장면은 금세 낡은 묘기가 되어버렸다. AI 데모 콘텐츠에는 유통기한이 있다.
 그것도 모델의 발전 속도만큼 짧은 유통기한이다.</p>
+<p>지금까지 살펴본 통로들을 한 표로 정리해두자.</p>
+<div class="tbl"><table style="width:99%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>통로</th>
+<th>이 장이 본 변화</th>
+<th>근거의 성격</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>문서 사이트</td>
+<td>Tailwind 문서 트래픽 2023년 초 대비 약 40% 감소</td>
+<td>회사 창업자의 1차 증언, 방법 미공개</td>
+</tr>
+<tr>
+<td>공개 Q&amp;A (Stack Overflow)</td>
+<td>출시 6개월 활동 약 25% 상대 감소 / 일일 웹 트래픽 약 12% 감소</td>
+<td>동료 검토 논문 2편</td>
+</tr>
+<tr>
+<td>관계형 커뮤니티 (Reddit)</td>
+<td>감소 증거 없음 / 정보성 요청 3.4% 초과 감소 배제</td>
+<td>동료 검토 논문 / 프리프린트</td>
+</tr>
+<tr>
+<td>검색</td>
+<td>“SEO is basically dead”, 챗봇이 새 구성원을 데려옴</td>
+<td>실무자 블로그</td>
+</tr>
+<tr>
+<td>비색인 채널 (Discord·Slack)</td>
+<td>새 도구의 지식이 검색되지 않는 방으로 흩어짐</td>
+<td>Hacker News 댓글</td>
+</tr>
+<tr>
+<td>에이전트</td>
+<td>“Another channel is agents”</td>
+<td>r/devrel 댓글</td>
+</tr>
+<tr>
+<td>AI 데모 콘텐츠</td>
+<td>모델이 좋아지자 금세 낡은 묘기가 됨</td>
+<td>실무자 블로그</td>
+</tr>
+</tbody>
+</table></div>
+<p class="tcap"><b>표 9.</b> 관계의 통로별로 본 변화와 그 근거</p>
 <p>이 진단들을 모으면 한 문장이 된다. 콘텐츠가 도착하던 통로가
 바뀌었다.</p>
 </section>
@@ -1806,14 +2221,17 @@ human developers, search crawlers, and LLMs. Each breaks differently.”
 directory, your API reference, and your SDK docs are your LLM marketing.
 Not your blog posts. Not your conference talks.” LLM이라는 표면에서는
 README와 예제 디렉터리, API 레퍼런스가 곧 마케팅이라는 것이다.</p>
-<figure><img src="media/media/file2.svg" alt="그림 1. 개발자·검색 크롤러·LLM —
-세 유통 표면과 두 퍼널" /><figcaption>그림 1. 개발자·검색 크롤러·LLM —
-세 유통 표면과 두 퍼널</figcaption></figure>
-<p>그림처럼 세 표면을 두 퍼널에 이어보면 설계의 기준이 조금 선명해진다.
-독자의 질문이 “이 함수의 인자가 무엇인가”처럼 정확성을 요구한다면, 그
-답은 machine funnel에 두는 편이 낫다. 에이전트가 가져가기 좋은
-레퍼런스와 예제로, 버전과 날짜를 분명히 해서. 독자의 질문이 “이 도구를
-우리 팀에 들여도 될까”처럼 신뢰를 요구한다면, 그 답은 사람이 만든
+<figure>
+<img src="media/media/file9.svg"
+alt="그림 10. 개발자·검색 크롤러·LLM — 세 유통 표면과 두 퍼널" />
+<figcaption aria-hidden="true"><b>그림 10.</b> 개발자·검색 크롤러·LLM — 세 유통
+표면과 두 퍼널</figcaption>
+</figure>
+<p>그림 10처럼 세 표면을 두 퍼널에 이어보면 설계의 기준이 조금
+선명해진다. 독자의 질문이 “이 함수의 인자가 무엇인가”처럼 정확성을
+요구한다면, 그 답은 machine funnel에 두는 편이 낫다. 에이전트가 가져가기
+좋은 레퍼런스와 예제로, 버전과 날짜를 분명히 해서. 독자의 질문이 “이
+도구를 우리 팀에 들여도 될까”처럼 신뢰를 요구한다면, 그 답은 사람이 만든
 이야기와 라이브 시연, 실패담이 담긴 자리에 두는 편이 낫다. 검색 크롤러는
 그 사이에서 양쪽 모두로 사람을 보낸다.</p>
 <p>조금 더 구체적으로 생각해보자. 당신이 SDK의 새 메이저 버전 릴리스를
@@ -1914,12 +2332,15 @@ inflated by placeholders and abandoned prototypes?” 등록된 항목의 수가
 늘어나는 것만으로는 생태계가 건강하다고 말할 수 없다는 경고다. 2장에서
 본 CHAOSS와 SPACE가 오래전부터 한 말, 활동량은 건강을 말해주지 않는다는
 말과 같은 이야기다.</p>
-<p>그렇다면 무엇을 세야 할까? 2026년 7월 DevRelCon NYC의 한 세션 제목이
-좋은 출발점이 된다. 참관기에 따르면 Joey de Villa와 Sean Keegan은 이렇게
-물었다. “What changed because this DevRel work existed?” 이 DevRel
-활동이 있었기 때문에 무엇이 달라졌는가. 누군가 실제로 배포하고, API
-호출에 성공하고, 포크하고, PR을 보낸 흔적이 그 답이 된다. 이 책은 이것을
-’만든 증거’라고 부르려 한다. 참관기 요약에서 나온 문장이니 발표 원문의
+<p>그렇다면 무엇을 세야 할까? 2026년 7월 DevRelCon NYC 참관기가 좋은
+출발점이 된다. 참관기에 따르면 1장에서 본 Joey deVilla의 세션은 DevRel의
+일이 채택·매출·유지 같은 결과에 어떻게 기여하는지 설명하라는 압박을
+다뤘고, Sean Keegan의 세션은 교육 지표를 예로 들어 소비 지표 옆에 만든
+흔적을 함께 보자고 했다. 참관기를 쓴 Ayodeji Ogundare는 두 세션을 정리한
+뒤 이렇게 물었다. “What changed because this DevRel work existed?” 이
+DevRel 활동이 있었기 때문에 무엇이 달라졌는가. 누군가 실제로 배포하고,
+API 호출에 성공하고, 포크하고, PR을 보낸 흔적이 그 답이 된다. 이 책은
+이것을 ’만든 증거’라고 부르려 한다. 참관기 작성자의 정리이니 발표 원문의
 맥락은 따로 확인해두자.</p>
 <p>국내에서도 비슷한 문장이 나왔다. 2026년 3월 GeekNews Weekly #350은
 이렇게 썼다. “과거에는 Developer Evangelist가 컨퍼런스와 블로그, 샘플
@@ -1989,7 +2410,7 @@ Face, Google DeepMind, Mintlify)은 같은 경로로 조회되지 않는다. 손
 <h2>같은 날 열어본 채용 페이지들</h2>
 <p>열 곳의 목록을 한 표에 모았다. 전체 공고 수는 같은 날에도 몇 건씩
 오르내리므로 일부는 어림으로 적었다.</p>
-<table>
+<div class="tbl"><table>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -2069,8 +2490,8 @@ Developer 1</td>
 <td>—</td>
 </tr>
 </tbody>
-</table>
-<p>표 1. 2026년 9월 25일 공개 채용 목록 스냅샷 (Greenhouse·Ashby 공개
+</table></div>
+<p class="tcap"><b>표 10.</b> 2026년 9월 25일 공개 채용 목록 스냅샷 (Greenhouse·Ashby 공개
 API 조회, 제목 키워드 기준 — 추세 지표 아님. Hugging Face·Google
 DeepMind·Mintlify는 조회 실패)</p>
 <p>표를 읽기 전에 두 가지를 짚자. 첫째, 이 열 곳을 모두 ’AI 회사’라고
@@ -2201,7 +2622,7 @@ growth”라고 불렀다. 구현 서비스를 제품에 붙여 파는 성장 �
 그 서비스를 맡는 사람이 “sometimes rebranded as a forward deployed
 engineer or an implementation/solutions specialist”라고 썼다. 당시
 OpenAI 공개 채용 311건 가운데 FDE·솔루션 직무가 22건이었다는 것이 a16z의
-집계다(2025년 6월 기준, 표 1의 22건과는 시점도 집계 기준도 다르다. VC
+집계다(2025년 6월 기준, 표 10의 22건과는 시점도 집계 기준도 다르다. VC
 에세이이니 투자사의 이해관계를 감안해 읽자).</p>
 <p>a16z의 문장에서 ’rebranded’라는 단어를 기억해두자. 오래된 직무가 새
 이름을 얻었다는 뜻이다. 그렇다면 DevRel이라는 이름에서 떠난 사람들은
@@ -2243,6 +2664,12 @@ Engineer), 가르치는 일로 초점을 좁히는 방향(Cursor의 AI 교육), 
 Users). 다만 이것은 스스로 공개한 사람들의 기록이다. 조용히 떠났거나
 그대로 남은 사람은 이 목록에 없다. 대표성을 주장할 수 있는 표본이
 아니라는 점을 잊지 말자.</p>
+<figure>
+<img src="media/media/file10.svg"
+alt="그림 11. DevRel이라는 이름을 떠난 공개 기록들 — 다섯 방향" />
+<figcaption aria-hidden="true"><b>그림 11.</b> DevRel이라는 이름을 떠난 공개
+기록들 — 다섯 방향</figcaption>
+</figure>
 <p>남은 것은 가장 많이 보이던 이름, FDE와 DevRel의 관계다.</p>
 </section>
 <section id="ch011.xhtml_fde는-devrel을-대체하는가" class="level2">
@@ -2266,7 +2693,7 @@ scale look like? DevRel Engineering.”이라는 제목의 글을 썼다. 원문
 <p>두 읽기 가운데 무엇이 맞을까? 공고 문구로 직접 확인해보자. 기능별로
 DevRel 계열 공고와 FDE 공고에서 같은 일을 가리키는 문장을 나란히
 놓았다.</p>
-<table style="width:99%;">
+<div class="tbl"><table style="width:99%;">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -2311,8 +2738,8 @@ sub-agents, and agent skills”</td>
 <td>“our most strategic customers”</td>
 </tr>
 </tbody>
-</table>
-<p>표 2. 기능별 공고 문구 대조 — 2026년 9월 25일 조회한 공고 원문</p>
+</table></div>
+<p class="tcap"><b>표 11.</b> 기능별 공고 문구 대조 — 2026년 9월 25일 조회한 공고 원문</p>
 <p>표를 따라 읽어보자. 되돌려주기 행에서 두 공고의 동사는 거의 같다. 이
 FDE 공고의 문장은 DevRel 공고 옆에 놓아도 낯설지 않다. 만들어 보여주기
 행도 닮았다. 다만 결과물이 향하는 곳이 한쪽은 복제해서 돌려볼 불특정
@@ -2326,6 +2753,12 @@ FDE 공고의 문장은 DevRel 공고 옆에 놓아도 낯설지 않다. 만들�
 전통적인 DevRel은 뒤쪽에 놓인다. Vercel의 DevRel Engineer처럼 제품 팀
 안에서 출시 전에 먼저 부딪히는 자리는 그 사이 어딘가다. 무엇이 어디에
 놓이는지는 회사가 어떤 고객에게 무엇을 파는지에 따라 달라진다.</p>
+<figure>
+<img src="media/media/file11.svg"
+alt="그림 12. 한 번에 닿는 사람의 수로 놓아본 직함들 — 2026년 9월 25일 공고 문구 기준" />
+<figcaption aria-hidden="true"><b>그림 12.</b> 한 번에 닿는 사람의 수로 놓아본
+직함들 — 2026년 9월 25일 공고 문구 기준</figcaption>
+</figure>
 <blockquote>
 <p><strong>반론:</strong> 보완이라는 그림이 맞더라도 안심할 일은 아니다.
 Daily Context 취재기의 요점은 가운데가 눌린다는 것이다. 글은 가장 위험한
@@ -2383,7 +2816,7 @@ Deployed Engineer, Applied AI, Developer Experience Engineer 같은
 <h2>공고 문구에 되풀이되는 동사들</h2>
 <p>6장에서 본 공고 문구를 기능별로 다시 묶어보자. 기준은 단순하다.
 직함이 무엇이든, 그 공고가 사람에게 무엇을 하라고 요구하는가.</p>
-<table style="width:99%;">
+<div class="tbl"><table style="width:99%;">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -2438,7 +2871,8 @@ ship”</td>
 <td>같은 Vercel 공고</td>
 </tr>
 </tbody>
-</table>
+</table></div>
+<p class="tcap"><b>표 12.</b> 2026년 9월 25일 공개 목록의 공고에 되풀이되는 동사</p>
 <p>표를 보면 눈에 띄는 점이 있다. ’되돌려주기’라는 동사가 가장 또렷하게
 적힌 곳은 FDE 공고다. 전략 고객 곁에 붙어 일하는 엔지니어에게, 반복되는
 배포 패턴을 찾아 정리하고 그 통찰을 제품·엔지니어링 팀에 되돌려주라고
@@ -2518,6 +2952,12 @@ goose 저장소에 뛰어들어 CLI와 데스크톱 앱의 문제를 고쳤다�
 피드백 루프로 돌리고, 그 과정에서 쌓인 결과물이 신뢰가 된다. 하나만
 떼어내면 힘이 빠진다. 네 기능이 한 사람 안에서, 또는 한 팀 안에서 함께
 돌 때 DevRel이 해오던 일이 된다.</p>
+<figure>
+<img src="media/media/file12.svg"
+alt="그림 13. 네 가지 기능이 맞물리는 순서" />
+<figcaption aria-hidden="true"><b>그림 13.</b> 네 가지 기능이 맞물리는
+순서</figcaption>
+</figure>
 </section>
 <section id="ch012.xhtml_커리어-경로가-없다는-것의-양면" class="level2">
 <h2>커리어 경로가 없다는 것의 양면</h2>
@@ -2572,13 +3012,13 @@ DevRel 인력의 규모나 채용 추이를 보여주는 공개 수치는 찾을
 확인되지 않았고, 대형 개발자 컨퍼런스 가운데는 최근 개최 여부를 확인할
 수 없는 곳도 있다. 그러니 전체 그림을 그리려 들기보다, 공개 자료로
 확인되는 장면 셋을 각각 따로 보자.</p>
-<p>첫 번째 장면은 우아한형제들의 채용 공고다. 채용 플랫폼에 게재된
-것으로 2022년 무렵으로 추정되는 ‘Developer Relations 담당자’ 공고에서,
+<p>첫 번째 장면은 우아한형제들의 채용 공고다. 2022년 11월 채용
+플랫폼(비즈니스피플)에 게재된 ‘Developer Relations 담당자’ 공고에서,
 DevRel 팀은 “기술 조직 산하 Tech HR 실”에 소속돼 있었다. 하는 일은
-“대내외 개발자들과의 관계를 바탕으로 우아한형제들의 기술 조직을 알리는”
-활동으로 적혀 있다. 기술 조직을 바깥에 알리고, 그 과정에서 안팎의
-개발자와 관계를 맺는 일이다. 이 공고는 2차 게재본으로만 확인했고, 지금
-이 조직이 어떤 형태인지는 알 수 없다.</p>
+“대내외 개발자들과의 관계(Relations)를 바탕으로 우아한형제들의 기술
+조직을 알리는” 활동으로 적혀 있다. 기술 조직을 바깥에 알리고, 그
+과정에서 안팎의 개발자와 관계를 맺는 일이다. 이 공고는 2차 게재본으로만
+확인했고, 지금 이 조직이 어떤 형태인지는 알 수 없다.</p>
 <p>두 번째 장면은 카카오의 PlayMCP다. 4장에서 본 것처럼 카카오는 2025년
 8월 개방형 MCP 플랫폼 PlayMCP를 베타로 열었다. 그리고 MCP 개발 공모전
 ’MCP Player 10’을 열어 10명을 선정하고 총 2,100만 원을 지원한다고
@@ -2638,6 +3078,43 @@ Staff Engineer로, 스타트업의 Member of Technical Staff로 옮겨 간
 모두 쓴다. 네 기능의 청중이 회사 안의 동료가 되는 자리다. 저자의 이동도
 이 목록의 한 줄이다. 이 자리가 왜 DevRel의 기능과 잘 맞는지는 8장에서
 따로 따져보자.</p>
+<div class="tbl"><table style="width:99%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>목적지</th>
+<th>가장 많이 쓰는 기능</th>
+<th>함께 알아둘 점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FDE·솔루션 엔지니어</td>
+<td>번역, 피드백 루프</td>
+<td>영업 목표와 계약 일정이 일의 리듬을 정함</td>
+</tr>
+<tr>
+<td>제품 엔지니어·Staff Engineer·MTS</td>
+<td>먼저 가보기</td>
+<td>청중 앞에 서는 일이 크게 줄어듦</td>
+</tr>
+<tr>
+<td>교육 직무</td>
+<td>신뢰, 번역</td>
+<td>모델이 바뀔 때마다 교재도 바뀜</td>
+</tr>
+<tr>
+<td>사내 AX</td>
+<td>네 기능 모두</td>
+<td>청중이 회사 안의 동료(8장)</td>
+</tr>
+</tbody>
+</table></div>
+<p class="tcap"><b>표 13.</b> 목적지별로 가장 많이 쓰는 기능</p>
 <p>어느 목적지로 가든 먼저 할 일이 하나 있다. 이력서의 언어를 바꾸는
 것이다. 1장에서 본 Raymond Camden은 해고 소식을 알리며 자신을 개발자의
 언어를 할 줄 아는 사람이라고 소개했다. ’Developer Advocate 5년’이라는 한
@@ -2693,6 +3170,12 @@ DevRel의 일로 정한 것이다.</p>
 참석자 수는 세기 쉽지만 무엇이 바뀌었는지 말해주지 않는다. 그 사람의 일
 때문에 배포된 앱, 성공한 API 호출, 고쳐진 버그, 줄어든 지원 문의처럼, 그
 일이 없었다면 없었을 결과를 미리 정해두자.</p>
+<figure>
+<img src="media/media/file13.svg"
+alt="그림 14. 리더가 차례로 답할 세 질문" />
+<figcaption aria-hidden="true"><b>그림 14.</b> 리더가 차례로 답할 세
+질문</figcaption>
+</figure>
 <p>세 질문을 한 번에 적용해보자. 새 기능을 낼 때마다 출시 첫 주에 비슷한
 지원 문의가 몰린다고 해보자. 병목은 먼저 가보기다. 출시 전에 누군가 낯선
 사용자의 눈으로 그 기능을 써봤다면 막혔을 문의들이다. 그렇다면 이 기능을
@@ -2810,6 +3293,13 @@ from fear to curiosity.” 문화의 안내자 역할까지 맡게 되었고, �
 도움을 받아야 하며, AI가 일자리를 가져갈지 모른다는 두려움도 다뤄야
 한다는 것이다. 두려움을 다루는 일이 회사 안에서만 필요한 것은 아니라는
 뜻이다.</p>
+<figure>
+<img src="media/media/file14.svg"
+alt="그림 15. DevRel의 활동이 사내 AI 확산의 장치로 옮겨간 자리 — Block·카카오·Anthropic 공개 기록에 기댄 대응이며, 효과는 아직 검증되지 않았다" />
+<figcaption aria-hidden="true"><b>그림 15.</b> DevRel의 활동이 사내 AI 확산의
+장치로 옮겨간 자리 — Block·카카오·Anthropic 공개 기록에 기댄 대응이며,
+효과는 아직 검증되지 않았다</figcaption>
+</figure>
 <p>“Going first. Figuring stuff out. Guiding others.”라는 세 마디는
 DevRel 직무 설명서의 첫 줄처럼 읽힌다. 그 세 동사가 향하는 목록에 법무와
 임원 비서가 더해졌을 뿐이다.</p>
@@ -2985,10 +3475,13 @@ it better as they interact regularly.” 무언가에 대한 관심을 나누고
 유지되는지를 폭넓게 검토한 연구로, 그 모형에는 오피니언 리더와 챔피언,
 경계 확장자가 함께 등장한다. 개인이 도구를 받아들이는 과정을 조직이
 혁신을 흡수하는 과정으로 옮겨 본 가교 역할을 하는 문헌이다.</p>
-<figure><img src="media/media/file3.svg" alt="그림 1. 먼저 가보기·함께
-배우기·보여주기·되돌려주기 — 청중이 동료로 옮겨갈 때" /><figcaption>그림 1. 먼저 가보기·함께
-배우기·보여주기·되돌려주기 — 청중이 동료로 옮겨갈 때</figcaption></figure>
-<p>그림처럼 정리해보면 이 장의 주장이 어디에 기대는지 보인다. 먼저
+<figure>
+<img src="media/media/file15.svg"
+alt="그림 16. 먼저 가보기·함께 배우기·보여주기·되돌려주기 — 청중이 동료로 옮겨갈 때" />
+<figcaption aria-hidden="true"><b>그림 16.</b> 먼저 가보기·함께
+배우기·보여주기·되돌려주기 — 청중이 동료로 옮겨갈 때</figcaption>
+</figure>
+<p>그림 16처럼 정리해보면 이 장의 주장이 어디에 기대는지 보인다. 먼저
 가보고, 함께 배우고, 보여주고, 되돌려주는 네 동사는 그대로다. 움직인
 것은 그 동사의 목적어다. 외부 개발자에게 향하던 동사가 회사 안의
 동료에게 향하고, 제품팀에 전하던 피드백이 도입을 설계하는 사람과
@@ -3004,6 +3497,43 @@ it better as they interact regularly.” 무언가에 대한 관심을 나누고
 사람이 하는 AX는 AI Transformation, 조직에 AI를 들여 일하는 방식을
 바꾸는 일이다. 같은 두 글자가 전혀 다른 맥락에서 따로 생겨났다. 이것은
 우연의 일치다. 이 우연을 무슨 운명처럼 읽을 이유는 없다.</p>
+<div class="tbl"><table style="width:99%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr>
+<th>항목</th>
+<th>Agent Experience</th>
+<th>AI Transformation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>뜻</td>
+<td>에이전트가 제품·플랫폼의 사용자로서 겪는 경험 전체</td>
+<td>조직에 AI를 들여 일하는 방식을 바꾸는 일</td>
+</tr>
+<tr>
+<td>이 책에서 본격적으로 다룬 곳</td>
+<td>4장(Biilmann, 2025-01-28 명명)</td>
+<td>8장(이 책을 쓰는 사람이 하는 일)</td>
+</tr>
+<tr>
+<td>사용자로 보는 대상</td>
+<td>에이전트</td>
+<td>조직의 동료</td>
+</tr>
+<tr>
+<td>둘이 겹치는 일</td>
+<td>사내 문서·도구를 에이전트가 쓸 수 있게 다듬기</td>
+<td>동료가 에이전트를 쓰도록 돕기</td>
+</tr>
+</tbody>
+</table></div>
+<p class="tcap"><b>표 14.</b> 같은 약어 AX의 두 뜻</p>
 <p>다만 이 우연이 가리키는 방향은 한번 볼 만하다. 조직 안에 AI를
 퍼뜨리다 보면, 결국 사내의 문서와 도구와 데이터를 에이전트가 쓸 수 있게
 만드는 일과 만나게 된다. 앞에서 본 Block의 교육 목록에 MCP로 AI를 일상
@@ -3058,6 +3588,43 @@ Higgins의 챔피언은 1990년의 기업을 대상으로 했다. 이 이론들�
 공개되지 않았다. Anthropic의 공고는 한 회사의 한 시점 공고 한 건이다.
 성공한 이야기일수록 공개될 가능성이 높다는 점도 함께 고려해야 한다.
 조용히 실패한 사내 확산 프로그램은 블로그 글을 남기지 않는다.</p>
+<div class="tbl"><table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>사례</th>
+<th>출처·날짜</th>
+<th>누가 무엇을 맡았나</th>
+<th>근거의 성격</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Block</td>
+<td>Angie Jones 블로그, 2025-10-20</td>
+<td>DevRel 팀이 전사 AI 에이전트 확산을 맡음</td>
+<td>리더의 1인칭 글, 인원 수는 작성자 서술</td>
+</tr>
+<tr>
+<td>카카오</td>
+<td>기술블로그, 2025-09-19·2025-10-30</td>
+<td>DevRel 담당자가 AI 마일리지 시범 운영·인사관리학회 발표</td>
+<td>운영 조직의 자체 공개, 설문 응답 수 미공개</td>
+</tr>
+<tr>
+<td>Anthropic</td>
+<td>채용 공고, 2026-09-21 갱신</td>
+<td>사내 영업 조직을 청중으로 한 개발자 교육 직무</td>
+<td>한 회사의 공고 한 건, 2026-09-25 확인</td>
+</tr>
+</tbody>
+</table></div>
+<p class="tcap"><b>표 15.</b> 이 장이 기댄 공개 사례 세 건과 근거의 성격</p>
 <p>셋째, 따라서 이 장의 근거는 두 가지의 조합이다. 확산·챔피언·경계
 역할·실천 공동체라는 이론, 그리고 Block·카카오·Anthropic 공고라는 공개
 사례. 이 조합은 “DevRel의 기술이 사내 AI 확산에 옮겨 쓰일 수 있다”는
@@ -3127,6 +3694,12 @@ what you learned.” 배움은 스스로 하되, 배운 것은 나누라는 것�
 것인가. 둘째 다이얼은 측정이다. 사용량에서 사용해서 만든 결과까지,
 어디를 셀 것인가. 셋째 다이얼은 공유 장치다. 배운 것이 흐를 통로를 만들
 것인가. 세 다이얼의 조합이 곧 한 조직의 확산 설계다.</p>
+<figure>
+<img src="media/media/file16.svg"
+alt="그림 17. 사내 AI 확산 설계의 세 다이얼 — 강도·측정·공유 장치" />
+<figcaption aria-hidden="true"><b>그림 17.</b> 사내 AI 확산 설계의 세 다이얼 —
+강도·측정·공유 장치</figcaption>
+</figure>
 <p>강도 다이얼을 끝까지 돌린 사례도 있다. 2025년 8월 TechCrunch는
 Coinbase CEO가 AI 코딩 도구를 곧바로 써보지 않은 엔지니어들을 해고한
 이유를 설명했다고 보도했다. Hacker News에는 반발하는 댓글이 이어졌다. 한
@@ -3151,6 +3724,45 @@ orchestrate AI and build systems that elevate how I work.”, 셋째 단계는
 공개했는데 “the floor moved fast”, 곧 바닥선이 빠르게 올라가 새 판을
 냈다고 덧붙였다. 이 루브릭은 뒤에서 한 번 더 보자. 무엇을 평가하느냐에
 흥미로운 단서가 있다.</p>
+<div class="tbl"><table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>사례</th>
+<th>강도</th>
+<th>측정</th>
+<th>공유 장치</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shopify CEO 메모 (2025-04-07)</td>
+<td>성과·동료평가 설문에 AI 사용 질문, 인력 요청 전 AI로 안 되는 이유
+입증</td>
+<td>평가 설문의 AI 사용 질문</td>
+<td>“share what you learned”, #revenue-ai-use-cases·#ai-centaurs</td>
+</tr>
+<tr>
+<td>Coinbase (TechCrunch 2025-08 보도)</td>
+<td>AI 코딩 도구를 곧바로 써보지 않은 엔지니어 해고</td>
+<td>이 장에서 다루지 않음</td>
+<td>이 장에서 다루지 않음</td>
+</tr>
+<tr>
+<td>Zapier AI Fluency Rubric (2026-03-31)</td>
+<td>모든 채용에 적용</td>
+<td>“what they’ve actually built”</td>
+<td>이 장에서 다루지 않음</td>
+</tr>
+</tbody>
+</table></div>
+<p class="tcap"><b>표 16.</b> 공개 사례를 세 다이얼에 놓아보기 — 이 장이 다룬 범위만
+적었다</p>
 <p>본론에 들어가기 전에 이 장의 한계를 먼저 밝혀둔다. 커뮤니티형 확산이
 의무화보다 효과적이라는 것을 보여주는 비교 연구는 없다. 이 책의 조사에서
 찾지 못했고, 8장에서 봤듯 AI 챔피언 프로그램의 효과를 정량화한 동료 검토
@@ -3194,6 +3806,12 @@ company.” 스스로를 속여서라도 회사에서 가장 열성적인 AI 챔
 사이의 공백을 사용량이 메운다. 그리고 사용량이 평가와 이어지는 순간,
 사람들은 사용량을 만들어내기 시작한다. levhawk의 리더보드에는 코드의
 쓸모를 재는 칸이 없었다.</p>
+<figure>
+<img src="media/media/file17.svg"
+alt="그림 18. 강도를 올리고 사용량을 세면 생기는 일 — 감시와 연기로 가는 경로" />
+<figcaption aria-hidden="true"><b>그림 18.</b> 강도를 올리고 사용량을 세면
+생기는 일 — 감시와 연기로 가는 경로</figcaption>
+</figure>
 <p>사용량에도 쓸 데는 있다. 도구를 한 번도 열어보지 않은 사람이 몇
 명인지는 확산 담당자가 알아야 할 정보다. 문턱이 어디서 높은지 알려주기
 때문이다. 사용량은 진단에 쓰는 숫자다. 사용량 숫자를 보고할 때는 그
@@ -3360,9 +3978,9 @@ AI matched the performance of teams without AI.” 연구진은 AI를 쓴
 <h2>무엇을 셀 것인가</h2>
 <p>이제 앞에서 미뤄둔 질문으로 돌아가자. levhawk의 리더보드는 토큰
 비용과 LOC를 셌다. 그 리더보드 대신 무엇을 세야 할까?</p>
-<p>5장에서 본 DevRelCon NYC 2026의 질문, 이 DevRel 활동이 있었기 때문에
-무엇이 달라졌는가를 회사 안으로 가져오면 출발점이 생긴다. 사내 확산
-프로그램이 있었기 때문에 무엇이 달라졌는가. 이 질문에 답하는 숫자는
+<p>5장에서 본 DevRelCon NYC 2026 참관기의 질문, 이 DevRel 활동이 있었기
+때문에 무엇이 달라졌는가를 회사 안으로 가져오면 출발점이 생긴다. 사내
+확산 프로그램이 있었기 때문에 무엇이 달라졌는가. 이 질문에 답하는 숫자는
 로그인 수나 토큰 소비량에서 나오지 않는다.</p>
 <p>카카오의 AI 마일리지 프로그램 운영자도 같은 곳에 도착했다. 운영
 기록에는 이런 대목이 있다.</p>
@@ -3388,6 +4006,38 @@ AI로 만든 도구가 없어지면 곤란해지는 업무. 이것들은 세기�
 성공 사례를 모으는 양식에 실패 지점을 적는 칸을 두면, 사례 모음이 그대로
 앞 절에서 말한 경계의 지도가 된다. 같은 양식이 측정과 교육을 한꺼번에
 해내는 셈이다.</p>
+<div class="tbl"><table>
+<thead>
+<tr>
+<th>칸</th>
+<th>묻는 것</th>
+<th>이어지는 곳</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>무엇을 만들었나</td>
+<td>’만든 증거’의 목록</td>
+</tr>
+<tr>
+<td>2</td>
+<td>누가 쓰고 있나</td>
+<td>확산이 닿은 범위</td>
+</tr>
+<tr>
+<td>3</td>
+<td>그 덕분에 무엇이 달라졌나</td>
+<td>“무엇이 달라졌는가”라는 측정 질문</td>
+</tr>
+<tr>
+<td>4</td>
+<td>어디서 AI가 틀렸나</td>
+<td>프런티어 절의 경계 지도</td>
+</tr>
+</tbody>
+</table></div>
+<p class="tcap"><b>표 17.</b> 사례 수집 네 줄 양식 — 한 양식으로 측정과 교육을 함께 하기</p>
 <p>측정에는 하나의 물음이 더 붙어야 한다. 카카오 운영자는 참가자들이
 도구가 없어지면 큰 불편을 느낄 것이라고 털어놓자 어린 시절 읽은 동화를
 떠올렸다고 썼다.</p>
@@ -3554,8 +4204,8 @@ relationships, connecting and reaching developers”로 적었다. 관계를 맺
 roxolotl은 참여자가 두 배로 늘어도 소수에 머물 것이라고 봤다. 같은
 토론의 다른 사용자는 바이브 코딩의 상당 부분이 “without an audience”, 곧
 공개된 곳에 드러나지 않고 일어나고 있을 수 있다고 봤다. 청중이 있어도
-DevRel이 볼 수 없는 곳에 있다는 뜻이다. 에이전트 쪽도 마찬가지다. 2026년
-9월 18일 ax-check를 소개한 Hacker News 스레드에서 한 사용자는
+DevRel이 볼 수 없는 곳에 있다는 뜻이다. 에이전트 쪽도 마찬가지다.
+ax-check를 소개한 Hacker News 스레드에서 한 사용자는 2026년 9월 18일,
 에이전트라는 새 중개자에 투자해 실질적인 수익을 낸 사례를 아무도
 보여주지 못했다고 썼다. 4장 끝에서 본 xena의 댓글, 곧 에이전트 친화도
 점검에서 만점을 받고도 약속받은 성장이 오지 않았다는 증언도 같은 자리에
@@ -3588,9 +4238,9 @@ class="level2">
 없애기 위해 고용된다면, 그 비용과 위험이 실제로 줄었는지를 보여줘야
 한다.</p>
 <p>그래서 교정론의 관찰 지표는 측정의 변화다. 5장에서 본 DevRelCon NYC
-2026의 질문, “What changed because this DevRel work existed?”가 실제
-조직의 평가 방식으로 들어가는지 보자. DevRel 공고와 조직 발표가 배포,
-성공한 API 호출, 해결된 문제처럼 ’만든 증거’를 성과 기준으로 적기
+2026 참관기의 질문, “What changed because this DevRel work existed?”가
+실제 조직의 평가 방식으로 들어가는지 보자. DevRel 공고와 조직 발표가
+배포, 성공한 API 호출, 해결된 문제처럼 ’만든 증거’를 성과 기준으로 적기
 시작한다면, 교정 이후의 DevRel이 측정의 숙제를 풀어가고 있다는 신호다.
 6장에서 본 Anthropic의 DevRel 공고가 개발자의 성공을 측정할 틀을 만드는
 일을 업무에 넣은 것은 그 방향의 한 장면이다. 한 장면으로 추세를 말할
@@ -3631,9 +4281,12 @@ Jones는 그 자리를 경력에서 가장 큰 무대라고 불렀다. 카카오
 빌더에게 필요하던 것, 곧 먼저 가본 사람의 안내와 막혔을 때 물어볼 곳과
 따라 해볼 수 있는 예제가 안에서도 필요해진 것이다. 내향론은 ’D’의 확장이
 회사 담장 안까지 들어왔을 때 나오는 전망이다.</p>
-<figure><img src="media/media/file4.svg" alt="그림 1. 1장의 네 이야기와 새
-출발점 하나에서 이어지는 네 전망" /><figcaption>그림 1. 1장의 네 이야기와 새
-출발점 하나에서 이어지는 네 전망</figcaption></figure>
+<figure>
+<img src="media/media/file18.svg"
+alt="그림 19. 1장의 네 이야기와 새 출발점 하나에서 이어지는 네 전망" />
+<figcaption aria-hidden="true"><b>그림 19.</b> 1장의 네 이야기와 새 출발점
+하나에서 이어지는 네 전망</figcaption>
+</figure>
 <p>그림을 보면 다섯 개의 출발점이 네 갈래 전망으로 모인다. 1장의 네
 이야기 가운데 셋은 각자의 전망으로 이어지고, 자기 실패론은 교정론의
 숙제로 흡수된다. 그 이유는 앞 절에서 봤다. 그리고 8·9장에서 나온 새
@@ -3657,6 +4310,50 @@ Jones는 그 자리를 경력에서 가장 큰 무대라고 불렀다. 카카오
 한계, 곧 DevRel식으로 확산을 설계한 조직이 더 잘 해냈다는 인과 증거가
 없다는 사실이 이 갈래 전체에 물음표를 남긴다. 내향론은 네 전망 가운데
 가장 새롭고, 그만큼 가장 덜 검증된 전망이다.</p>
+<div class="tbl"><table>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr>
+<th>전망 [예측]</th>
+<th>출발점</th>
+<th>반대 의견</th>
+<th>관찰 지표</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>해체론</td>
+<td>재구조화론(Briggs)</td>
+<td>Anthropic·Vercel·Supabase의 DevRel 제목 공고</td>
+<td>인접 직무 공고 속 기능 동사의 빈도</td>
+</tr>
+<tr>
+<td>확장론</td>
+<td>부활론(swyx)</td>
+<td>메이커 운동 상한론, 에이전트 투자 수익 사례 부재</td>
+<td>빌더·에이전트를 청중으로 적은 공고와 프로그램, 채택과의 연결
+자료</td>
+</tr>
+<tr>
+<td>교정론</td>
+<td>거품 교정론, 자기 실패론</td>
+<td>Orbit 사례</td>
+<td>’만든 증거’를 성과 기준으로 적는 공고·발표, DRF의 공통 측정 틀</td>
+</tr>
+<tr>
+<td>내향론</td>
+<td>8·9장의 사내 확산 사례</td>
+<td>의무화 냉소, 인과 증거 부재</td>
+<td>첫 실증 연구, Block·카카오 밖의 공개 사례</td>
+</tr>
+</tbody>
+</table></div>
+<p class="tcap"><b>표 18.</b> 네 갈래 전망의 출발점·반대 의견·관찰 지표</p>
 </section>
 <section id="ch016.xhtml_무엇을-보면-알-수-있나-그리고-다음-걸음"
 class="level2">
@@ -3797,7 +4494,7 @@ class="level1">
 <h2>A-1. 지난 석 달의 업무 배분</h2>
 <p>캘린더, 이슈 트래커, 산출물 목록을 펴놓고 지난 석 달 동안 쓴 시간을
 칸마다 대략의 비율로 적는다. 전체 합이 100이 되게 적자.</p>
-<table>
+<div class="tbl"><table>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 20%" />
@@ -3844,7 +4541,7 @@ class="level1">
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>다 적었다면 세 가지를 살펴보자.</p>
 <ul>
 <li>가장 큰 칸은 어디인가? 그 칸이 지금 당신의 자리다.</li>
@@ -3859,7 +4556,7 @@ class="level1">
 <h2>A-2. 기능별 증빙</h2>
 <p>기능마다 가장 좋은 증거 하나를 적는다. 6장에서 본 공고들은 결과물의
 링크를 요구했다. 링크를 붙일 수 없다면 그 칸이 약한 칸이다.</p>
-<table>
+<div class="tbl"><table>
 <thead>
 <tr>
 <th>기능</th>
@@ -3894,14 +4591,14 @@ class="level1">
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </section>
 <section id="ch018.xhtml_a-3.-인접-직함-찾기" class="level2">
 <h2>A-3. 인접 직함 찾기</h2>
 <p>A-1에서 가장 굵은 행을 골라, 그 기능을 가장 많이 쓰는 자리를
 찾아보자. 7장의 목적지 목록을 기준으로 정리했다. 공고 예시는 2026년 9월
 25일 공개 목록에서 가져온 것이고, 이후 바뀔 수 있다.</p>
-<table style="width:99%;">
+<div class="tbl"><table style="width:99%;">
 <colgroup>
 <col style="width: 33%" />
 <col style="width: 33%" />
@@ -3938,7 +4635,7 @@ something”)</td>
 <td>8장의 Block·카카오 공개 사례</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>찾았다면 이력서의 한 줄을 기능의 동사로 다시 써보자. 형식은
 이렇다.</p>
 <pre class="text"><code>[기능 동사] + [누구에게] + [만든 증거]
@@ -4072,7 +4769,7 @@ class="level1">
 선택지를 정리하는 도구다(9장 첫 절의 한계 참조).</p>
 <section id="ch020.xhtml_c-1.-rogers-5속성-대응표" class="level2">
 <h2>C-1. Rogers 5속성 대응표</h2>
-<table>
+<div class="tbl"><table>
 <colgroup>
 <col style="width: 25%" />
 <col style="width: 25%" />
@@ -4119,13 +4816,13 @@ class="level1">
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </section>
 <section id="ch020.xhtml_c-2.-세-다이얼" class="level2">
 <h2>C-2. 세 다이얼</h2>
 <p>각 다이얼에서 지금 위치와 가고 싶은 위치를 표시하고, 그 이유를 한
 줄로 적는다.</p>
-<table style="width:100%;">
+<div class="tbl"><table style="width:100%;">
 <colgroup>
 <col style="width: 16%" />
 <col style="width: 16%" />
@@ -4170,19 +4867,18 @@ class="level1">
 <td></td>
 </tr>
 </tbody>
-</table>
+</table></div>
 <p>세 다이얼은 따로 움직이지 않는다. 강도를 올리면 측정이 따라 올라가기
 쉽고, 측정이 사용량에 머물면 감시로 읽히기 쉽다. 강도를 올릴 계획이라면
 공유 장치부터 갖추자.</p>
 </section>
 <section id="ch020.xhtml_c-3.-사례-수집-네-줄-양식" class="level2">
 <h2>C-3. 사례 수집 네 줄 양식</h2>
+<p>9장 표 17의 네 줄을 빈칸으로 옮긴 양식이다.</p>
 <pre class="text"><code>1. 무엇을 만들었나:
 2. 누가 쓰고 있나:
 3. 그 덕분에 무엇이 달라졌나:
 4. 어디서 AI가 틀렸나:</code></pre>
-<p>넷째 줄이 모이면 그대로 AI가 믿을 만한 범위와 그렇지 않은 범위를
-가르는 경계의 지도가 된다.</p>
 </section>
 <section id="ch020.xhtml_c-4.-허영-지표-경고-목록" class="level2">
 <h2>C-4. 허영 지표 경고 목록</h2>
@@ -4286,379 +4982,853 @@ class="level3">
 보고서)</h3>
 <ul>
 <li>Agentic AI Foundation. “Linux Foundation Announces the Formation of
-the Agentic AI Foundation.” Linux Foundation, 2025-12-09.
-https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation
-· MCP 블로그
-https://blog.modelcontextprotocol.io/posts/2025-12-09-mcp-joins-agentic-ai-foundation/
+the Agentic AI Foundation.” Linux Foundation, 2025-12-09. <a
+href="https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation"
+class="uri">https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation</a>
+· MCP 블로그 <a
+href="https://blog.modelcontextprotocol.io/posts/2025-12-09-mcp-joins-agentic-ai-foundation/"
+class="uri">https://blog.modelcontextprotocol.io/posts/2025-12-09-mcp-joins-agentic-ai-foundation/</a>
 [1차]</li>
-<li>Anthropic. “Introducing the Model Context Protocol.” 2024-11-25.
-https://www.anthropic.com/news/model-context-protocol [1차]</li>
-<li>Anthropic. Claude Code 연환산 매출 발표. 2025-12-03.
-https://www.anthropic.com/news/anthropic-acquires-bun-as-claude-code-reaches-usd1b-milestone
+<li>Anthropic. “Introducing the Model Context Protocol.” 2024-11-25. <a
+href="https://www.anthropic.com/news/model-context-protocol"
+class="uri">https://www.anthropic.com/news/model-context-protocol</a>
 [1차]</li>
-<li>Anthropic 채용 공고 (2026-09-25 조회). Developer Relations
-https://job-boards.greenhouse.io/anthropic/jobs/5383596008 · Developer
-Education Lead, Claude Platform
-https://job-boards.greenhouse.io/anthropic/jobs/5311465008 · Forward
-Deployed Engineer
-https://job-boards.greenhouse.io/anthropic/jobs/5302966008 · Copywriter,
-Developer https://job-boards.greenhouse.io/anthropic/jobs/5423931008
+<li>Anthropic. Claude Code 연환산 매출 발표. 2025-12-03. <a
+href="https://www.anthropic.com/news/anthropic-acquires-bun-as-claude-code-reaches-usd1b-milestone"
+class="uri">https://www.anthropic.com/news/anthropic-acquires-bun-as-claude-code-reaches-usd1b-milestone</a>
+[1차]</li>
+<li>Anthropic. “Anthropic raises $30 billion in Series G funding at $380
+billion post-money valuation”(Claude Code run-rate $2.5B+ 서술).
+2026-02-12. <a
+href="https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation"
+class="uri">https://www.anthropic.com/news/anthropic-raises-30-billion-series-g-funding-380-billion-post-money-valuation</a>
+[1차]</li>
+<li>Anthropic 채용 공고 (2026-09-25 조회). Developer Relations <a
+href="https://job-boards.greenhouse.io/anthropic/jobs/5383596008"
+class="uri">https://job-boards.greenhouse.io/anthropic/jobs/5383596008</a>
+· Developer Education Lead, Claude Platform <a
+href="https://job-boards.greenhouse.io/anthropic/jobs/5311465008"
+class="uri">https://job-boards.greenhouse.io/anthropic/jobs/5311465008</a>
+· Forward Deployed Engineer <a
+href="https://job-boards.greenhouse.io/anthropic/jobs/5302966008"
+class="uri">https://job-boards.greenhouse.io/anthropic/jobs/5302966008</a>
+· Copywriter, Developer <a
+href="https://job-boards.greenhouse.io/anthropic/jobs/5423931008"
+class="uri">https://job-boards.greenhouse.io/anthropic/jobs/5423931008</a>
 [1차 공고]</li>
-<li>Biilmann, Mathias. Agent Experience(AX) 제안 글. 2025-01-28.
-https://biilmann.blog/articles/introducing-ax/ · Netlify Agent
-Experience https://www.netlify.com/agent-experience/ · X 게시물
-https://x.com/biilmann/status/1945159154173464868 [1차]</li>
-<li>Cloudflare. 원격 MCP 서버 발표. 2025-04-07.
-https://www.cloudflare.com/press/press-releases/2025/cloudflare-accelerates-ai-agent-development-remote-mcp/
-· VoidZero 인수 발표, 2026-06-04.
-https://www.cloudflare.com/press/press-releases/2026/cloudflare-acquires-voidzero-to-build-the-future-of-the-ai-native-web/
-· VoidZero Developer Relations Engineer 공고
-https://boards.greenhouse.io/cloudflare/jobs/8190563 [1차]</li>
-<li>Collins Dictionary. “Collins Word of the Year 2025.” 2025-11-06.
-https://blog.collinsdictionary.com/language-lovers/collins-word-of-the-year-2025-ai-meets-authenticity-as-society-shifts/
+<li>Biilmann, Mathias. Agent Experience(AX) 제안 글. 2025-01-28. <a
+href="https://biilmann.blog/articles/introducing-ax/"
+class="uri">https://biilmann.blog/articles/introducing-ax/</a> · Netlify
+Agent Experience <a href="https://www.netlify.com/agent-experience/"
+class="uri">https://www.netlify.com/agent-experience/</a> · X 게시물 <a
+href="https://x.com/biilmann/status/1945159154173464868"
+class="uri">https://x.com/biilmann/status/1945159154173464868</a>
+[1차]</li>
+<li>Cloudflare. 원격 MCP 서버 발표. 2025-04-07. <a
+href="https://www.cloudflare.com/press/press-releases/2025/cloudflare-accelerates-ai-agent-development-remote-mcp/"
+class="uri">https://www.cloudflare.com/press/press-releases/2025/cloudflare-accelerates-ai-agent-development-remote-mcp/</a>
+· VoidZero 인수 발표, 2026-06-04. <a
+href="https://www.cloudflare.com/press/press-releases/2026/cloudflare-acquires-voidzero-to-build-the-future-of-the-ai-native-web/"
+class="uri">https://www.cloudflare.com/press/press-releases/2026/cloudflare-acquires-voidzero-to-build-the-future-of-the-ai-native-web/</a>
+· VoidZero Developer Relations Engineer 공고 <a
+href="https://boards.greenhouse.io/cloudflare/jobs/8190563"
+class="uri">https://boards.greenhouse.io/cloudflare/jobs/8190563</a>
+[1차]</li>
+<li>Collins Dictionary. “Collins Word of the Year 2025.” 2025-11-06. <a
+href="https://blog.collinsdictionary.com/language-lovers/collins-word-of-the-year-2025-ai-meets-authenticity-as-society-shifts/"
+class="uri">https://blog.collinsdictionary.com/language-lovers/collins-word-of-the-year-2025-ai-meets-authenticity-as-society-shifts/</a>
 [1차]</li>
 <li>Common Room. “2023 Developer Relations Compensation and Culture
-Report.” 2023-08-31.
-https://www.commonroom.io/blog/2023-developer-relations-compensation-and-culture-report-overview/
+Report.” 2023-08-31. <a
+href="https://www.commonroom.io/blog/2023-developer-relations-compensation-and-culture-report-overview/"
+class="uri">https://www.commonroom.io/blog/2023-developer-relations-compensation-and-culture-report-overview/</a>
 [벤더 설문, n=136]</li>
 <li>DevRel.Agency. <em>State of Developer Relations 2024</em>.
-2024-09-10. https://www.stateofdeveloperrelations.com/2024devrelreport
+2024-09-10. <a
+href="https://www.stateofdeveloperrelations.com/2024devrelreport"
+class="uri">https://www.stateofdeveloperrelations.com/2024devrelreport</a>
 [설문, n=310, 자기선택 표본]</li>
-<li>GitHub. “GitHub MCP Server Public Preview.” 2025-04-04.
-https://github.blog/changelog/2025-04-04-github-mcp-server-public-preview/
+<li>GitHub. “GitHub MCP Server Public Preview.” 2025-04-04. <a
+href="https://github.blog/changelog/2025-04-04-github-mcp-server-public-preview/"
+class="uri">https://github.blog/changelog/2025-04-04-github-mcp-server-public-preview/</a>
 [1차]</li>
-<li>GitHub. <em>Octoverse 2025</em>. 2025-10-28.
-https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/
+<li>GitHub. <em>Octoverse 2025</em>. 2025-10-28. <a
+href="https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/"
+class="uri">https://github.blog/news-insights/octoverse/octoverse-a-new-developer-joins-github-every-second-as-ai-leads-typescript-to-1/</a>
 [1차]</li>
-<li>Howard, Jeremy. “The /llms.txt file.” Answer.AI, 2024-09-03.
-https://llmstxt.org/ [1차 제안]</li>
+<li>Howard, Jeremy. “The /llms.txt file.” Answer.AI, 2024-09-03. <a
+href="https://llmstxt.org/" class="uri">https://llmstxt.org/</a> [1차
+제안]</li>
 <li>Linux Foundation. Developer Relations Foundation 결성 의향
-발표(2024-09-16)
-https://www.linuxfoundation.org/press/linux-foundation-announces-intent-to-form-developer-relations-foundation
-· 결성 발표(2025-08-25)
-https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-developer-relations-foundation
+발표(2024-09-16) <a
+href="https://www.linuxfoundation.org/press/linux-foundation-announces-intent-to-form-developer-relations-foundation"
+class="uri">https://www.linuxfoundation.org/press/linux-foundation-announces-intent-to-form-developer-relations-foundation</a>
+· 결성 발표(2025-08-25) <a
+href="https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-developer-relations-foundation"
+class="uri">https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-developer-relations-foundation</a>
 [1차]</li>
 <li>Lovable. “One year of Lovable: Welcome to the age of the builder.”
-2025-11-18. https://lovable.dev/blog/one-year-of-lovable [회사
+2025-11-18. <a href="https://lovable.dev/blog/one-year-of-lovable"
+class="uri">https://lovable.dev/blog/one-year-of-lovable</a> [회사
 발표]</li>
 <li>Lütke, Tobi. “Reflexive AI usage is now a baseline expectation at
-Shopify.” X, 2025-04-07. https://x.com/tobi/status/1909251946235437514
-[1차]</li>
+Shopify.” X, 2025-04-07. <a
+href="https://x.com/tobi/status/1909251946235437514"
+class="uri">https://x.com/tobi/status/1909251946235437514</a> [1차]</li>
 <li>Mintlify. “The state of docs traffic: a 2026 midyear report.”
-2026-07-29. https://www.mintlify.com/blog/state-of-docs-traffic [벤더
-자사 데이터]</li>
+2026-07-29. <a
+href="https://www.mintlify.com/blog/state-of-docs-traffic"
+class="uri">https://www.mintlify.com/blog/state-of-docs-traffic</a>
+[벤더 자사 데이터]</li>
 <li>OpenAI 채용 공고 (2026-09-25 조회). Developer Experience Engineer,
-Cyber
-https://jobs.ashbyhq.com/openai/708121e8-51ac-4a24-a2ff-bd9889ba5486
+Cyber <a
+href="https://jobs.ashbyhq.com/openai/708121e8-51ac-4a24-a2ff-bd9889ba5486"
+class="uri">https://jobs.ashbyhq.com/openai/708121e8-51ac-4a24-a2ff-bd9889ba5486</a>
 [1차 공고]</li>
-<li>Orbit. Orbit Model. GitHub, 2019.
-https://github.com/orbit-love/orbit-model · Postman의 Orbit 인수 발표,
-2024-04-11.
-https://blog.postman.com/announcing-postman-has-acquired-orbit/
+<li>Orbit. Orbit Model. GitHub, 2019. <a
+href="https://github.com/orbit-love/orbit-model"
+class="uri">https://github.com/orbit-love/orbit-model</a> · Postman의
+Orbit 인수 발표, 2024-04-11. <a
+href="https://blog.postman.com/announcing-postman-has-acquired-orbit/"
+class="uri">https://blog.postman.com/announcing-postman-has-acquired-orbit/</a>
 [1차]</li>
-<li>Replit. 투자 유치 발표. 2026-03.
-https://replit.com/news/funding-announcement [회사 게시]</li>
+<li>Replit. 투자 유치 발표. 2026-03. <a
+href="https://replit.com/news/funding-announcement"
+class="uri">https://replit.com/news/funding-announcement</a> [회사
+게시]</li>
 <li>Samborski, Remigiusz. Google Agent Skills 제작기. Google Cloud Blog,
-2026-08-04.
-https://cloud.google.com/blog/topics/developers-practitioners/behind-the-scenes-how-we-build-test-and-scale-google-agent-skills
+2026-08-04. <a
+href="https://cloud.google.com/blog/topics/developers-practitioners/behind-the-scenes-how-we-build-test-and-scale-google-agent-skills"
+class="uri">https://cloud.google.com/blog/topics/developers-practitioners/behind-the-scenes-how-we-build-test-and-scale-google-agent-skills</a>
 [1차]</li>
-<li>Stack Overflow. <em>2025 Developer Survey — AI</em>.
-https://survey.stackoverflow.co/2025/ai [설문, 약 49,000명, 자기선택
-표본]</li>
-<li>Stripe. “Building with AI.” https://docs.stripe.com/building-with-ai
-(2026-09 조회) [1차 문서]</li>
-<li>Supabase. MCP 서버 발표 https://supabase.com/blog/mcp-server ·
-Developer Relations Engineer 공고
-https://jobs.ashbyhq.com/supabase/a1320bbf-bfae-49a8-a1b7-12eeccaf39ca
+<li>Stack Overflow. <em>2025 Developer Survey — AI</em>. <a
+href="https://survey.stackoverflow.co/2025/ai"
+class="uri">https://survey.stackoverflow.co/2025/ai</a> [설문, 약
+49,000명, 자기선택 표본]</li>
+<li>Stripe. “Building with AI.” <a
+href="https://docs.stripe.com/building-with-ai"
+class="uri">https://docs.stripe.com/building-with-ai</a> (2026-09 조회)
+[1차 문서]</li>
+<li>Supabase. MCP 서버 발표 <a
+href="https://supabase.com/blog/mcp-server"
+class="uri">https://supabase.com/blog/mcp-server</a> · Developer
+Relations Engineer 공고 <a
+href="https://jobs.ashbyhq.com/supabase/a1320bbf-bfae-49a8-a1b7-12eeccaf39ca"
+class="uri">https://jobs.ashbyhq.com/supabase/a1320bbf-bfae-49a8-a1b7-12eeccaf39ca</a>
 [1차]</li>
-<li>Vercel. “Introducing Vercel MCP.” 2025-08-06.
-https://vercel.com/blog/introducing-vercel-mcp-connect-vercel-to-your-ai-tools
-· DevRel Engineer, Agentic Infrastructure 공고
-https://job-boards.greenhouse.io/vercel/jobs/6122437004 [1차]</li>
-<li>VoidZero. “VoidZero joins Cloudflare.”
-https://voidzero.dev/posts/voidzero-cloudflare [1차]</li>
+<li>Vercel. “Introducing Vercel MCP.” 2025-08-06. <a
+href="https://vercel.com/blog/introducing-vercel-mcp-connect-vercel-to-your-ai-tools"
+class="uri">https://vercel.com/blog/introducing-vercel-mcp-connect-vercel-to-your-ai-tools</a>
+· DevRel Engineer, Agentic Infrastructure 공고 <a
+href="https://job-boards.greenhouse.io/vercel/jobs/6122437004"
+class="uri">https://job-boards.greenhouse.io/vercel/jobs/6122437004</a>
+[1차]</li>
+<li>VoidZero. “VoidZero joins Cloudflare.” <a
+href="https://voidzero.dev/posts/voidzero-cloudflare"
+class="uri">https://voidzero.dev/posts/voidzero-cloudflare</a>
+[1차]</li>
 <li>Wathan, Adam. tailwindlabs/tailwindcss.com PR #2388(“feat: add
 llms.txt endpoint for LLM-optimized documentation”, quantizor 작성
-2025-11-18)에 단 댓글, 2026-01-06·07.
-https://github.com/tailwindlabs/tailwindcss.com/pull/2388 [1차
-증언]</li>
-<li>Zapier (Foster, Wade). AI Fluency Rubric 공개. X, 2026-03-31.
-https://x.com/wadefoster/status/2038979630590509553 [1차]</li>
-<li>카카오. if(kakao) 2025 https://if.kakao.com/2025 · PlayMCP·MCP
-Player 10 공모전 발표 https://www.kakaocorp.com/page/detail/11674 [회사
+2025-11-18)에 단 댓글, 2026-01-06·07. <a
+href="https://github.com/tailwindlabs/tailwindcss.com/pull/2388"
+class="uri">https://github.com/tailwindlabs/tailwindcss.com/pull/2388</a>
+[1차 증언]</li>
+<li>Zapier (Foster, Wade). AI Fluency Rubric 공개. X, 2026-03-31. <a
+href="https://x.com/wadefoster/status/2038979630590509553"
+class="uri">https://x.com/wadefoster/status/2038979630590509553</a>
+[1차]</li>
+<li>카카오. if(kakao) 2025 <a href="https://if.kakao.com/2025"
+class="uri">https://if.kakao.com/2025</a> · PlayMCP·MCP Player 10 공모전
+발표 <a href="https://www.kakaocorp.com/page/detail/11674"
+class="uri">https://www.kakaocorp.com/page/detail/11674</a> [회사
 발표]</li>
 <li>카카오 기술블로그. “Vibe Coding하는 비개발자는 개발자인가(1)”,
-2025-04-22, https://tech.kakao.com/posts/697 · “(2)”, 2025-04-24,
-https://tech.kakao.com/posts/700 · “생산성 혁신의 실험: AI 마일리지
-프로그램”, 2025-09-19, https://tech.kakao.com/posts/762 ·
-“한국인사관리학회에서 공유한 ‘AI 네이티브 전환’”, 2025-10-30,
-https://tech.kakao.com/posts/783 · “1K: 바이브코딩전 생생 후기”,
-2025-11-03, https://tech.kakao.com/posts/784 [회사 발표·자사 수치]</li>
-<li>토스. “토스 메이커스 컨퍼런스 25.” 토스피드.
-https://toss.im/tossfeed/article/tmc25 [회사 발표]</li>
-<li>우아한형제들. Developer Relations 담당자 채용 공고. 채용 플랫폼
-게재본, 2022년 무렵 추정. [2차 게재본, 현재 상태 미확인]</li>
+2025-04-22, <a href="https://tech.kakao.com/posts/697"
+class="uri">https://tech.kakao.com/posts/697</a> · “(2)”, 2025-04-24, <a
+href="https://tech.kakao.com/posts/700"
+class="uri">https://tech.kakao.com/posts/700</a> · “생산성 혁신의 실험:
+AI 마일리지 프로그램”, 2025-09-19, <a
+href="https://tech.kakao.com/posts/762"
+class="uri">https://tech.kakao.com/posts/762</a> · “한국인사관리학회에서
+공유한 ‘AI 네이티브 전환’”, 2025-10-30, <a
+href="https://tech.kakao.com/posts/783"
+class="uri">https://tech.kakao.com/posts/783</a> · “1K: 바이브코딩전
+생생 후기”, 2025-11-03, <a href="https://tech.kakao.com/posts/784"
+class="uri">https://tech.kakao.com/posts/784</a> [회사 발표·자사
+수치]</li>
+<li>토스. “토스 메이커스 컨퍼런스 25.” 토스피드. <a
+href="https://toss.im/tossfeed/article/tmc25"
+class="uri">https://toss.im/tossfeed/article/tmc25</a> [회사 발표]</li>
+<li>우아한형제들. “Developer Relations 담당자” 채용 공고. 비즈니스피플
+게재본, 2022-11-21 게시(현재 마감). <a
+href="https://www.bzpp.co.kr/biz/businessDetailView/BR221121A00083"
+class="uri">https://www.bzpp.co.kr/biz/businessDetailView/BR221121A00083</a>
+[채용 플랫폼 게재본, 현재 조직 상태 미확인]</li>
 </ul>
 </section>
 <section id="ch022.xhtml_블로그의견언론" class="level3">
 <h3>블로그·의견·언론</h3>
 <ul>
-<li>Ahmed, Dewan. AI 시대 DevRel에 관한 글. 2026-08-11 갱신.
-https://www.dewanahmed.com/devrel-ai-era/ [블로그]</li>
-<li>Alam-Naylor, Salma. “Goodbye, forever, probably.” 2026-07-02.
-https://whitep4nth3r.com/blog/goodbye-forever-probably/ · Bluesky
-https://bsky.app/profile/whitep4nth3r.com/post/3mpq5bokhgc2e [1인칭
-기록]</li>
-<li>Apideck. Stripe llms.txt 지시문 소개 글. 2026-02-23.
-https://www.apideck.com/blog/stripe-llms-txt-instructions-section
+<li>9to5Google. “Google layoffs are wide-ranging as Page, Brin consulted
+on AI”(해고 당사자 SNS 증언 인용). 2023-01-20. <a
+href="https://9to5google.com/2023/01/20/google-layoffs-wide/"
+class="uri">https://9to5google.com/2023/01/20/google-layoffs-wide/</a>
+[언론]</li>
+<li>Acosta, Liz. “DevRel v3.0: Return of the Developer Advocate.”
+dev.to, 2024-10-30. <a
+href="https://dev.to/lizzzzz/devrel-v30-return-of-the-developer-advocate-ig7"
+class="uri">https://dev.to/lizzzzz/devrel-v30-return-of-the-developer-advocate-ig7</a>
+[블로그, 1인칭 기록]</li>
+<li>Ahmed, Dewan. AI 시대 DevRel에 관한 글. 2026-08-11 갱신. <a
+href="https://www.dewanahmed.com/devrel-ai-era/"
+class="uri">https://www.dewanahmed.com/devrel-ai-era/</a> [블로그]</li>
+<li>Alam-Naylor, Salma. “Goodbye, forever, probably.” 2026-07-02. <a
+href="https://whitep4nth3r.com/blog/goodbye-forever-probably/"
+class="uri">https://whitep4nth3r.com/blog/goodbye-forever-probably/</a>
+· Bluesky <a
+href="https://bsky.app/profile/whitep4nth3r.com/post/3mpq5bokhgc2e"
+class="uri">https://bsky.app/profile/whitep4nth3r.com/post/3mpq5bokhgc2e</a>
+[1인칭 기록]</li>
+<li>Apideck. Stripe llms.txt 지시문 소개 글. 2026-02-23. <a
+href="https://www.apideck.com/blog/stripe-llms-txt-instructions-section"
+class="uri">https://www.apideck.com/blog/stripe-llms-txt-instructions-section</a>
 [블로그, 2차 인용]</li>
-<li>Briggs, Lee. “The Death of Developer Relations.” 2024-12-10.
-https://leebriggs.co.uk/blog/2024/12/10/the-death-of-devrel
+<li>Briggs, Lee. “The Death of Developer Relations.” 2024-12-10. <a
+href="https://leebriggs.co.uk/blog/2024/12/10/the-death-of-devrel"
+class="uri">https://leebriggs.co.uk/blog/2024/12/10/the-death-of-devrel</a>
 [블로그]</li>
+<li>Bryant, Daniel. “The Death of DevRel (Again?) and the Rise of
+Product Advocate and Community Roles.” Avocado Bytes(Substack),
+2024-02-09. <a
+href="https://avocadobytes.substack.com/p/the-death-of-devrel-again-and-the"
+class="uri">https://avocadobytes.substack.com/p/the-death-of-devrel-again-and-the</a>
+· 경력 회고(2024-01-16) <a
+href="https://avocadobytes.substack.com/p/year-in-review-avocadobytes-in-2023"
+class="uri">https://avocadobytes.substack.com/p/year-in-review-avocadobytes-in-2023</a>
+[블로그]</li>
+<li>Business Insider. “Tailwind Cuts 3 of Its 4 Engineers, Cites ‘Brutal
+Impact’ of AI.” 2026-01-08. <a
+href="https://www.businessinsider.com/tailwind-engineer-layoffs-ai-github-2026-1"
+class="uri">https://www.businessinsider.com/tailwind-engineer-layoffs-ai-github-2026-1</a>
+[언론]</li>
 <li>Casey, Keith. “Developer Relations: A Painful Reckoning.”
-2024-07-17.
-https://caseysoftware.com/blog/developer-relations-a-painful-reckoning
+2024-07-17. <a
+href="https://caseysoftware.com/blog/developer-relations-a-painful-reckoning"
+class="uri">https://caseysoftware.com/blog/developer-relations-a-painful-reckoning</a>
 [블로그]</li>
 <li>Chanezon, Patrick. AI 에이전트 시대 DevRel의 진화에 관한 글.
-2025-11-07.
-https://blog.chanezon.com/2025/11/07/devrel-evolution-with-ai-agents.html
+2025-11-07. <a
+href="https://blog.chanezon.com/2025/11/07/devrel-evolution-with-ai-agents.html"
+class="uri">https://blog.chanezon.com/2025/11/07/devrel-evolution-with-ai-agents.html</a>
 [블로그]</li>
-<li>Daily Context. “Is Forward Deployed Engineering Killing DevRel?”
-Dev.to, 2026-07-02.
-https://dev.to/dailycontext/is-forward-deployed-engineering-killing-devrel-1833
-[취재기]</li>
-<li>Fortune. Supabase Series D 단독 보도(Paul Copplestone 인터뷰).
-2025-04-22.
-https://fortune.com/2025/04/22/exclusive-supabase-raises-200-million-series-d-at-2-billion-valuation/
+<li>CNBC. Twilio 약 1,500명(17%) 감원 보도. 2023-02-13. <a
+href="https://www.cnbc.com/2023/02/13/twilio-layoffs-1500-employees-17percent-of-workforce.html"
+class="uri">https://www.cnbc.com/2023/02/13/twilio-layoffs-1500-employees-17percent-of-workforce.html</a>
+· Twilio 5% 감원 보도, 2023-12-04. <a
+href="https://www.cnbc.com/2023/12/04/twilio-layoffs-company-to-cut-5percent-of-employees.html"
+class="uri">https://www.cnbc.com/2023/12/04/twilio-layoffs-company-to-cut-5percent-of-employees.html</a>
 [언론]</li>
-<li>Gruber, John. Daring Fireball, 2026-03-13.
-https://daringfireball.net/linked/2026/03/13/amodei-ai-code-claim-chowder
+<li>Council on Foreign Relations. Dario Amodei 대담 영상 게시물. X,
+2025-03-10. <a href="https://x.com/CFR_org/status/1899226263518159225"
+class="uri">https://x.com/CFR_org/status/1899226263518159225</a> · 보도:
+Yahoo Finance <a
+href="https://finance.yahoo.com/news/anthropic-ceo-says-ai-could-193020957.html"
+class="uri">https://finance.yahoo.com/news/anthropic-ceo-says-ai-could-193020957.html</a>
+[대담·언론]</li>
+<li>Daily Context. “Is Forward Deployed Engineering Killing DevRel?”
+Dev.to, 2026-07-02. <a
+href="https://dev.to/dailycontext/is-forward-deployed-engineering-killing-devrel-1833"
+class="uri">https://dev.to/dailycontext/is-forward-deployed-engineering-killing-devrel-1833</a>
+[취재기]</li>
+<li>Dealroom. “Cursor tops $4B annualized revenue.” 2026-06-09. <a
+href="https://dealroom.co/news/134107-cursor-tops-4b-annualized-revenue/"
+class="uri">https://dealroom.co/news/134107-cursor-tops-4b-annualized-revenue/</a>
+[언론 집계, 익명 소식통 기반]</li>
+<li>deVilla, Joey. “I’m speaking at DevRelCon NYC 2026 (July 22 - 23 in
+Brooklyn)!”(발표 “The Market is Trying to Tell You Something” 초록).
+Global Nerdy, 2026-07-06. <a
+href="https://www.globalnerdy.com/2026/07/06/im-speaking-at-devrelcon-nyc-2026-july-22-23-in-brooklyn/"
+class="uri">https://www.globalnerdy.com/2026/07/06/im-speaking-at-devrelcon-nyc-2026-july-22-23-in-brooklyn/</a>
 [블로그]</li>
-<li>Jones, Angie. “How DevRel Is Leading AI Adoption.” 2025-10-20.
-https://angiejones.tech/how-devrel-is-leading-ai-adoption/ [1인칭
-기록]</li>
-<li>Karlsson, Joe. 2026년 DevRel 운영에 관한 글. 2026-04-20.
-https://www.joekarlsson.com/blog/running-devrel-2026/ [블로그]</li>
-<li>Karpathy, Andrej. “vibe coding” 게시물. X, 2025-02-02.
-https://x.com/karpathy/status/1886192184808149383 · 1주년 회고
-https://x.com/karpathy/status/2019137879310836075 [1차]</li>
-<li>Kawasaki, Guy. 에반젤리즘 회고 글.
-https://guykawasaki.com/the-art-of-evangelism/ · Wikipedia “Guy
-Kawasaki” https://en.wikipedia.org/wiki/Guy_Kawasaki
+<li>deVilla, Joey. “Laid off in 2024, part 1: The 15 worst minutes of
+2024, followed by 15 more.” Global Nerdy, 2024-02-05. <a
+href="https://www.globalnerdy.com/2024/02/05/laid-off-in-2024-part-1-the-15-worst-minutes-of-2024-followed-by-15-more/"
+class="uri">https://www.globalnerdy.com/2024/02/05/laid-off-in-2024-part-1-the-15-worst-minutes-of-2024-followed-by-15-more/</a>
+[블로그, 1인칭 기록]</li>
+<li>Financial Times. “The new hot job in AI: forward-deployed
+engineers.” 2025-11-02. <a
+href="https://www.ft.com/content/91002071-7874-4cb7-9245-08ca0571c408"
+class="uri">https://www.ft.com/content/91002071-7874-4cb7-9245-08ca0571c408</a>
+· FT X 게시 <a href="https://x.com/FT/status/1984860707221848257"
+class="uri">https://x.com/FT/status/1984860707221848257</a> [언론,
+페이월·봇 차단(403) — 본문 미정독, 제목·주소는 HN 제출
+기록(2025-11-02)으로 확인, 800% 원 데이터 제공자 미확인]</li>
+<li>Fortune. Supabase Series D 단독 보도(Paul Copplestone 인터뷰).
+2025-04-22. <a
+href="https://fortune.com/2025/04/22/exclusive-supabase-raises-200-million-series-d-at-2-billion-valuation/"
+class="uri">https://fortune.com/2025/04/22/exclusive-supabase-raises-200-million-series-d-at-2-billion-valuation/</a>
+[언론]</li>
+<li>Gruber, John. Daring Fireball, 2026-03-13. <a
+href="https://daringfireball.net/linked/2026/03/13/amodei-ai-code-claim-chowder"
+class="uri">https://daringfireball.net/linked/2026/03/13/amodei-ai-code-claim-chowder</a>
+[블로그]</li>
+<li>Iaso, Xe. “What DevRel means to me.” xeiaso.net, 2023-10-24. <a
+href="https://xeiaso.net/blog/devrel/"
+class="uri">https://xeiaso.net/blog/devrel/</a> [블로그]</li>
+<li>Jones, Angie. “How DevRel Is Leading AI Adoption.” 2025-10-20. <a
+href="https://angiejones.tech/how-devrel-is-leading-ai-adoption/"
+class="uri">https://angiejones.tech/how-devrel-is-leading-ai-adoption/</a>
+[1인칭 기록]</li>
+<li>Julien, Sam. “#DevRel isn’t dead, it’s just evolving.”로 시작하는 X
+스레드. X, 2024-03-07. <a
+href="https://twitter.com/samjulien/status/1765866396431290458"
+class="uri">https://twitter.com/samjulien/status/1765866396431290458</a>
+· 스레드 전문 임베드 <a
+href="https://codetv.dev/blog/death-and-rebirth-of-devrel"
+class="uri">https://codetv.dev/blog/death-and-rebirth-of-devrel</a>
+[1인칭 의견]</li>
+<li>Karlsson, Joe. 2026년 DevRel 운영에 관한 글. 2026-04-20. <a
+href="https://www.joekarlsson.com/blog/running-devrel-2026/"
+class="uri">https://www.joekarlsson.com/blog/running-devrel-2026/</a>
+[블로그]</li>
+<li>Karpathy, Andrej. “vibe coding” 게시물. X, 2025-02-02. <a
+href="https://x.com/karpathy/status/1886192184808149383"
+class="uri">https://x.com/karpathy/status/1886192184808149383</a> ·
+1주년 회고 <a href="https://x.com/karpathy/status/2019137879310836075"
+class="uri">https://x.com/karpathy/status/2019137879310836075</a>
+[1차]</li>
+<li>Kawasaki, Guy. 에반젤리즘 회고 글. <a
+href="https://guykawasaki.com/the-art-of-evangelism/"
+class="uri">https://guykawasaki.com/the-art-of-evangelism/</a> ·
+Wikipedia “Guy Kawasaki” <a
+href="https://en.wikipedia.org/wiki/Guy_Kawasaki"
+class="uri">https://en.wikipedia.org/wiki/Guy_Kawasaki</a>
 [블로그·백과사전]</li>
-<li>kt cloud 기술블로그. “DevRel 톺아보기.” 2024-11-04.
-https://tech.ktcloud.com/entry/DevRel-톺아보기 [블로그]</li>
-<li>Leggetter, Phil. “Defining Developer Relations.” 2016-02-03.
-https://www.leggetter.co.uk/2016/02/03/defining-developer-relations.html
-· AAARRRP https://www.leggetter.co.uk/aaarrrp/ [블로그]</li>
+<li>Kravets, Una. Chrome DevRel 팀의 운영 방식에 관한 게시물. X,
+2024-03-08. <a href="https://twitter.com/Una/status/1766160029369962545"
+class="uri">https://twitter.com/Una/status/1766160029369962545</a>
+[1인칭 의견]</li>
+<li>kt cloud 기술블로그. “DevRel 톺아보기.” 2024-11-04. <a
+href="https://tech.ktcloud.com/entry/DevRel-톺아보기"
+class="uri">https://tech.ktcloud.com/entry/DevRel-톺아보기</a>
+[블로그]</li>
+<li>Leggetter, Phil. “Defining Developer Relations.” 2016-02-03. <a
+href="https://www.leggetter.co.uk/2016/02/03/defining-developer-relations.html"
+class="uri">https://www.leggetter.co.uk/2016/02/03/defining-developer-relations.html</a>
+· AAARRRP <a href="https://www.leggetter.co.uk/aaarrrp/"
+class="uri">https://www.leggetter.co.uk/aaarrrp/</a> [블로그]</li>
 <li>Lewko, Caroline &amp; Parton, James. <em>Developer Relations: How to
-Build and Grow a Successful Developer Program</em>. Apress, 2021.
-https://www.devrel.agency/book [단행본]</li>
+Build and Grow a Successful Developer Program</em>. Apress, 2021. <a
+href="https://www.devrel.agency/book"
+class="uri">https://www.devrel.agency/book</a> [단행본]</li>
 <li>Mueller, John (Search Engine Journal 보도). “Google Says LLMs.txt Is
-Purely Speculative For Now.”
-https://www.searchenginejournal.com/google-says-llms-txt-is-purely-speculative-for-now/577576/
+Purely Speculative For Now.” <a
+href="https://www.searchenginejournal.com/google-says-llms-txt-is-purely-speculative-for-now/577576/"
+class="uri">https://www.searchenginejournal.com/google-says-llms-txt-is-purely-speculative-for-now/577576/</a>
 [언론 인용]</li>
-<li>NVIDIA Blog. World Government Summit 대담 보도, 2024-02-12.
-https://blogs.nvidia.com/blog/world-governments-summit/ [보도 인용]</li>
+<li>Ng, Andrew. 코딩 학습 권유 반대론에 대한 발언(원 LinkedIn 게시물
+주소 미확인). 2차 보도: Yahoo Tech <a
+href="https://tech.yahoo.com/ai/articles/google-brain-founder-andrew-ng-142624045.html"
+class="uri">https://tech.yahoo.com/ai/articles/google-brain-founder-andrew-ng-142624045.html</a>
+· ‘바이브 코딩’ 명칭 비판 보도 AOL/Business Insider <a
+href="https://www.aol.com/andrew-ng-says-vibe-coding-065832544.html"
+class="uri">https://www.aol.com/andrew-ng-says-vibe-coding-065832544.html</a>
+[언론·2차 인용]</li>
+<li>NVIDIA Blog. World Government Summit 대담 보도, 2024-02-12. <a
+href="https://blogs.nvidia.com/blog/world-governments-summit/"
+class="uri">https://blogs.nvidia.com/blog/world-governments-summit/</a>
+[보도 인용]</li>
 <li>Ogundare, Ayodeji. DevRelCon New York 2026 참관기. LinkedIn,
-2026-07-25.
-https://www.linkedin.com/pulse/devrelcon-new-york-2026-building-humans-agents-next-billion-ogundare-avq8e
+2026-07-25. <a
+href="https://www.linkedin.com/pulse/devrelcon-new-york-2026-building-humans-agents-next-billion-ogundare-avq8e"
+class="uri">https://www.linkedin.com/pulse/devrelcon-new-york-2026-building-humans-agents-next-billion-ogundare-avq8e</a>
 [참관기 요약]</li>
+<li>Pit, Catalin. “Why I Switched Back From DevRel to Engineering.”
+catalins.tech, 2023-10-31. <a
+href="https://catalins.tech/why-i-switched-back-from-devrel-to-engineering/"
+class="uri">https://catalins.tech/why-i-switched-back-from-devrel-to-engineering/</a>
+[블로그, 1인칭 기록]</li>
+<li>Placona, Marcos. 2026년 DevRel 예측 목록 게시물(원제 미표기, 항목
+수는 URL과 페이지 요약이 달라 적지 않음). LinkedIn, 2026-01-05. <a
+href="https://www.linkedin.com/posts/marcosplacona_15-devrel-predictions-for-2026-activity-7414048365518200832-IQgv"
+class="uri">https://www.linkedin.com/posts/marcosplacona_15-devrel-predictions-for-2026-activity-7414048365518200832-IQgv</a>
+[의견·예측]</li>
+<li>Poehnelt, Justin. Google 해고 경위를 밝힌 게시물. X, 2026-06-23. <a
+href="https://x.com/JPoehnelt/status/2069482265953087602"
+class="uri">https://x.com/JPoehnelt/status/2069482265953087602</a> ·
+직함 출처 <a href="https://justin.poehnelt.com/about"
+class="uri">https://justin.poehnelt.com/about</a> [1인칭 기록, 해고
+사유는 본인 추정]</li>
 <li>Reddington, Chris. DevRel 가치 창출 연구 공개 글(Warwick Business
-School MBA 논문 기반). 2026-03-11.
-https://chrisreddington.com/blog/devrel-value-creation/ [질적 인터뷰,
-n=13]</li>
-<li>Robinson, Lee. “A new chapter.” 2025-07-21.
-https://leerob.substack.com/p/a-new-chapter · X
-https://x.com/leerob/status/1946323104692945188 [1인칭 기록]</li>
+School MBA 논문 기반). 2026-03-11. <a
+href="https://chrisreddington.com/blog/devrel-value-creation/"
+class="uri">https://chrisreddington.com/blog/devrel-value-creation/</a>
+[질적 인터뷰, n=13]</li>
+<li>Reelsen, Alexander. “Goodbye DevRel… (for now).” spinscale.de,
+2023-11-28. <a
+href="https://spinscale.de/posts/2023-11-28-goodbye-devrel.html"
+class="uri">https://spinscale.de/posts/2023-11-28-goodbye-devrel.html</a>
+[블로그, 1인칭 기록]</li>
+<li>Robinson, Lee. “A new chapter.” 2025-07-21. <a
+href="https://leerob.substack.com/p/a-new-chapter"
+class="uri">https://leerob.substack.com/p/a-new-chapter</a> · X <a
+href="https://x.com/leerob/status/1946323104692945188"
+class="uri">https://x.com/leerob/status/1946323104692945188</a> [1인칭
+기록]</li>
 <li>Scarlett, Rizèl. AI 붐 속 DevRel 리더십에 관한 글. Dev.to,
-2025-09-16.
-https://dev.to/blackgirlbytes/how-to-lead-devrel-in-the-ai-boom-stop-playing-it-safe-19jo
+2025-09-16. <a
+href="https://dev.to/blackgirlbytes/how-to-lead-devrel-in-the-ai-boom-stop-playing-it-safe-19jo"
+class="uri">https://dev.to/blackgirlbytes/how-to-lead-devrel-in-the-ai-boom-stop-playing-it-safe-19jo</a>
 [블로그]</li>
 <li>Schaeff, Thor. “DX for Humans and Machines.” DevRelCon New York 2025
-발표 전사본.
-https://developerrelations.com/talks/redefining-developer-experience-in-the-age-of-vibe-coding/
+발표 전사본. <a
+href="https://developerrelations.com/talks/redefining-developer-experience-in-the-age-of-vibe-coding/"
+class="uri">https://developerrelations.com/talks/redefining-developer-experience-in-the-age-of-vibe-coding/</a>
 [발표]</li>
-<li>Schmidt, Joe. “Trading Margin for Moat.” a16z, 2025-06-04.
-https://a16z.com/services-led-growth/ [VC 에세이]</li>
+<li>Schmidt, Joe. “Trading Margin for Moat.” a16z, 2025-06-04. <a
+href="https://a16z.com/services-led-growth/"
+class="uri">https://a16z.com/services-led-growth/</a> [VC 에세이]</li>
 <li>Semafor. “Replit CEO on AI breakthroughs: ‘We don’t care about
-professional coders anymore’.” 2025-01-15.
-https://www.semafor.com/article/01/15/2025/replit-ceo-on-ai-breakthroughs-we-dont-care-about-professional-coders-anymore
+professional coders anymore’.” 2025-01-15. <a
+href="https://www.semafor.com/article/01/15/2025/replit-ceo-on-ai-breakthroughs-we-dont-care-about-professional-coders-anymore"
+class="uri">https://www.semafor.com/article/01/15/2025/replit-ceo-on-ai-breakthroughs-we-dont-care-about-professional-coders-anymore</a>
 [언론]</li>
-<li>SiliconANGLE. “Vercel’s v0.app launches…” 2025-08-11.
-https://siliconangle.com/2025/08/11/vercels-v0-app-launches-allowing-anyone-create-deploy-working-app-website-using-prompts/
+<li>SiliconANGLE. “Vercel’s v0.app launches…” 2025-08-11. <a
+href="https://siliconangle.com/2025/08/11/vercels-v0-app-launches-allowing-anyone-create-deploy-working-app-website-using-prompts/"
+class="uri">https://siliconangle.com/2025/08/11/vercels-v0-app-launches-allowing-anyone-create-deploy-working-app-website-using-prompts/</a>
 [언론]</li>
-<li>Soshnikov, Dmitri. “Evangelism.” https://soshnikov.com/evangelism/
-[블로그]</li>
+<li>Soshnikov, Dmitri. “Evangelism.” <a
+href="https://soshnikov.com/evangelism/"
+class="uri">https://soshnikov.com/evangelism/</a> [블로그]</li>
 <li>swyx (Shawn Wang). “DevRel’s Death as Zero Interest Rate
-Phenomenon.” 2024-07. https://dx.tips/zirp · “DevRel Is -Unbelievably-
-Back.” 2025-10. https://dx.tips/devrel-is-back [블로그]</li>
-<li>Tal, Liran. 2026년 DevRel의 주제 변화에 관한 글. 2026.
-https://lirantal.com/blog/devrel-2026-thematic-shifts-product-centric-advocacy-coding-agents
+Phenomenon.” 2024-07. <a href="https://dx.tips/zirp"
+class="uri">https://dx.tips/zirp</a> · “DevRel Is -Unbelievably- Back.”
+2025-10. <a href="https://dx.tips/devrel-is-back"
+class="uri">https://dx.tips/devrel-is-back</a> [블로그]</li>
+<li>Tal, Liran. 2026년 DevRel의 주제 변화에 관한 글. 2026. <a
+href="https://lirantal.com/blog/devrel-2026-thematic-shifts-product-centric-advocacy-coding-agents"
+class="uri">https://lirantal.com/blog/devrel-2026-thematic-shifts-product-centric-advocacy-coding-agents</a>
 [블로그]</li>
+<li>TechCrunch. “Coinbase CEO explains why he fired engineers who didn’t
+try AI immediately.” 2025-08-22. <a
+href="https://techcrunch.com/2025/08/22/coinbase-ceo-explains-why-he-fired-engineers-who-didnt-try-ai-immediately/"
+class="uri">https://techcrunch.com/2025/08/22/coinbase-ceo-explains-why-he-fired-engineers-who-didnt-try-ai-immediately/</a>
+[언론]</li>
+<li>TechCrunch. “Replit hits $3B valuation on $150M annualized revenue.”
+2025-09-10. <a
+href="https://techcrunch.com/2025/09/10/replit-hits-3b-valuation-on-150m-annualized-revenue"
+class="uri">https://techcrunch.com/2025/09/10/replit-hits-3b-valuation-on-150m-annualized-revenue</a>
+[언론]</li>
+<li>TechCrunch. “Twilio lays off 11% of its staff as it aims for
+profitability in 2023.” 2022-09-14. <a
+href="https://techcrunch.com/2022/09/14/twilio-lays-off-11-of-its-staff-as-it-aims-for-profitability-in-2023/"
+class="uri">https://techcrunch.com/2022/09/14/twilio-lays-off-11-of-its-staff-as-it-aims-for-profitability-in-2023/</a>
+[언론]</li>
 <li>The New Stack. Dana Lawson 인터뷰(Netlify Agent Experience).
-2026-06. https://thenewstack.io/netlify-agent-experience-engineers/
+2026-06. <a
+href="https://thenewstack.io/netlify-agent-experience-engineers/"
+class="uri">https://thenewstack.io/netlify-agent-experience-engineers/</a>
 [언론 인터뷰]</li>
+<li>The Register. “Vibe coded Lovable-hosted app littered with basic
+flaws exposed 18K users.” 2026-02-27. <a
+href="https://www.theregister.com/2026/02/27/lovable_app_vulnerabilities/"
+class="uri">https://www.theregister.com/2026/02/27/lovable_app_vulnerabilities/</a>
+[언론]</li>
+<li>Thengvall, Mary. “DevRel Qualified Leads.” 2019-12-14. <a
+href="https://www.marythengvall.com/blog/2019/12/14/devrel-qualified-leads-repurposing-a-common-business-metrics-to-prove-value"
+class="uri">https://www.marythengvall.com/blog/2019/12/14/devrel-qualified-leads-repurposing-a-common-business-metrics-to-prove-value</a>
+[블로그]</li>
 <li>Thengvall, Mary. <em>The Business Value of Developer Relations</em>.
-Apress, 2018. https://link.springer.com/book/10.1007/978-1-4842-3748-9 ·
-한국어판 『기업의 성공을 이끄는 Developer Relations』(조은옥 옮김,
-한빛미디어, 2022)
-https://www.hanbit.co.kr/store/books/look.php?p_code=B9102351881
+Apress, 2018. <a
+href="https://link.springer.com/book/10.1007/978-1-4842-3748-9"
+class="uri">https://link.springer.com/book/10.1007/978-1-4842-3748-9</a>
+· 한국어판 『기업의 성공을 이끄는 Developer Relations』(조은옥 옮김,
+한빛미디어, 2022) <a
+href="https://www.hanbit.co.kr/store/books/look.php?p_code=B9102351881"
+class="uri">https://www.hanbit.co.kr/store/books/look.php?p_code=B9102351881</a>
 [단행본]</li>
-<li>Thengvall, Mary. “DevRel Qualified Leads.” 2019-12-14.
-https://www.marythengvall.com/blog/2019/12/14/devrel-qualified-leads-repurposing-a-common-business-metrics-to-prove-value
+<li>Washington, Danielle. “DevRelCon, Adult Summer Camp, and My First
+Time Speaking.” dev.to, 2026-07-28. <a
+href="https://dev.to/daniellewashington/devrelcon-adult-summer-camp-and-my-first-time-speaking-4p2d"
+class="uri">https://dev.to/daniellewashington/devrelcon-adult-summer-camp-and-my-first-time-speaking-4p2d</a>
 [블로그]</li>
 <li>Weinmeister, Karl. “What does FDE at scale look like? DevRel
-Engineering.” Medium. https://medium.com/<span class="citation"
-data-cites="kweinmeister/what-does-fde-at-scale-look-like-devrel-engineering-d0999298b1ee">@kweinmeister/what-does-fde-at-scale-look-like-devrel-engineering-d0999298b1ee
-[요약 기반, 원문 미대조]</span></li>
-<li>본문에서 언론 보도로 인용했고 원문 주소를 이 목록에 싣지 않은 자료:
-Business Insider(Tailwind 감원, 2026-01), Financial Times(“The new hot
-job in AI: forward-deployed engineers”, 2025-11, X 게시
-https://x.com/FT/status/1984860707221848257), Reuters(Claude Code 매출
-보도, 2026-02), TechCrunch(Replit 매출 보도 2025-09-10, Coinbase 보도
-2025-08), The Register(Lovable 호스팅 앱 노출 보도, 2026-02), Cursor
-매출 보도(2026-06, 익명 소식통 기반), Andrew Ng 발언(2025, 여러 매체 2차
-인용), Council on Foreign Relations 대담(Dario Amodei, 2025-03-10,
-https://x.com/CFR_org/status/1899226263518159225) [언론·2차 인용]</li>
+Engineering.” Medium. <a
+href="https://medium.com/@kweinmeister/what-does-fde-at-scale-look-like-devrel-engineering-d0999298b1ee"
+class="uri">https://medium.com/@kweinmeister/what-does-fde-at-scale-look-like-devrel-engineering-d0999298b1ee</a>
+[요약 기반, 원문 미대조]</li>
+<li>Willis, Ashley. “What Is Developer Advocacy? (2025 Edition).”
+ashley.dev, 2025-04-25. <a
+href="https://ashley.dev/posts/what-is-developer-advocacy/"
+class="uri">https://ashley.dev/posts/what-is-developer-advocacy/</a>
+[블로그]</li>
 </ul>
 </section>
 <section id="ch022.xhtml_논문-동료-검토" class="level3">
 <h3>논문 (동료 검토)</h3>
 <ul>
 <li>Brynjolfsson, E., Li, D., &amp; Raymond, L. “Generative AI at Work.”
-<em>Quarterly Journal of Economics</em>, 2025.
-doi:10.1093/qje/qjae044</li>
+<em>Quarterly Journal of Economics</em>, 2025. <a
+href="https://doi.org/10.1093/qje/qjae044">doi:10.1093/qje/qjae044</a></li>
 <li>Burtch, G., Lee, D., &amp; Chen, Z. “The consequences of generative
 AI for online knowledge communities.” <em>Scientific Reports</em>, 2024.
-doi:10.1038/s41598-024-61221-0</li>
-<li>Chou et al. 바이브 코딩 영상 분석 연구. FSE 2026 게재 승인.
-arXiv:2512.22418</li>
-<li>Daniotti et al. <em>Science</em>, 2026.
-doi:10.1126/science.adz9311</li>
+<a
+href="https://doi.org/10.1038/s41598-024-61221-0">doi:10.1038/s41598-024-61221-0</a></li>
+<li>Chou et al. 바이브 코딩 영상 분석 연구. FSE 2026 게재 승인. <a
+href="https://arxiv.org/abs/2512.22418">arXiv:2512.22418</a></li>
+<li>Daniotti et al. <em>Science</em>, 2026. <a
+href="https://doi.org/10.1126/science.adz9311">doi:10.1126/science.adz9311</a></li>
 <li>Dell’Acqua, F. et al. BCG 컨설턴트 현장 실험. <em>Organization
-Science</em>, 2026. doi:10.1287/orsc.2025.21838</li>
+Science</em>, 2026. <a
+href="https://doi.org/10.1287/orsc.2025.21838">doi:10.1287/orsc.2025.21838</a></li>
 <li>del Rio-Chanona, R. M., Laurentsyeva, N., &amp; Wachs, J. “Large
 language models reduce public knowledge sharing on online Q&amp;A
-platforms.” <em>PNAS Nexus</em>, 2024.
-doi:10.1093/pnasnexus/pgae400</li>
+platforms.” <em>PNAS Nexus</em>, 2024. <a
+href="https://doi.org/10.1093/pnasnexus/pgae400">doi:10.1093/pnasnexus/pgae400</a></li>
 <li>Fagerholm, F. &amp; Münch, J. “Developer Experience: Concept and
-Definition.” ICSSP 2012. doi:10.1109/ICSSP.2012.6225984</li>
-<li>Feldman, M. &amp; Anderson, C. CHIWORK ’24.
-doi:10.1145/3663384.3663393</li>
+Definition.” ICSSP 2012. <a
+href="https://doi.org/10.1109/ICSSP.2012.6225984">doi:10.1109/ICSSP.2012.6225984</a></li>
+<li>Feldman, M. &amp; Anderson, C. CHIWORK ’24. <a
+href="https://doi.org/10.1145/3663384.3663393">doi:10.1145/3663384.3663393</a></li>
 <li>Fontão, A. et al. DevGo. <em>Journal of Software: Evolution and
-Process</em> 35(5), 2023. doi:10.1002/smr.2389</li>
+Process</em> 35(5), 2023. <a
+href="https://doi.org/10.1002/smr.2389">doi:10.1002/smr.2389</a></li>
 <li>Forsgren, N. et al. “The SPACE of Developer Productivity.” <em>ACM
-Queue</em>, 2021. doi:10.1145/3454122.3454124 [실무자 대상 잡지
-기고]</li>
-<li>Goggins, S. et al. CHAOSS. 2021.
-doi:10.1109/SoHeal52568.2021.00010</li>
+Queue</em>, 2021. <a
+href="https://doi.org/10.1145/3454122.3454124">doi:10.1145/3454122.3454124</a>
+[실무자 대상 잡지 기고]</li>
+<li>Goggins, S. et al. CHAOSS. 2021. <a
+href="https://doi.org/10.1109/SoHeal52568.2021.00010">doi:10.1109/SoHeal52568.2021.00010</a></li>
 <li>Greenhalgh, T. et al. “Diffusion of Innovations in Service
 Organizations: Systematic Review and Recommendations.” <em>Milbank
-Quarterly</em>, 2004. doi:10.1111/j.0887-378X.2004.00325.x</li>
+Quarterly</em>, 2004. <a
+href="https://doi.org/10.1111/j.0887-378X.2004.00325.x">doi:10.1111/j.0887-378X.2004.00325.x</a></li>
 <li>Howell, J. M. &amp; Higgins, C. A. “Champions of Technological
-Innovation.” <em>Administrative Science Quarterly</em>, 1990.
-doi:10.2307/2393393</li>
-<li>Kabir, S. et al. CHI 2024. doi:10.1145/3613904.3642596</li>
+Innovation.” <em>Administrative Science Quarterly</em>, 1990. <a
+href="https://doi.org/10.2307/2393393">doi:10.2307/2393393</a></li>
+<li>Kabir, S. et al. CHI 2024. <a
+href="https://doi.org/10.1145/3613904.3642596">doi:10.1145/3613904.3642596</a></li>
 <li>Ko, A. J. et al. “The State of the Art in End-User Software
-Engineering.” <em>ACM Computing Surveys</em>, 2011.
-doi:10.1145/1922649.1922658</li>
-<li>Massanori, et al. “Death of a Software Ecosystem.” SBES 2020.
-doi:10.1145/3422392.3422445 [학회 단편 논문]</li>
+Engineering.” <em>ACM Computing Surveys</em>, 2011. <a
+href="https://doi.org/10.1145/1922649.1922658">doi:10.1145/1922649.1922658</a></li>
+<li>Massanori, et al. “Death of a Software Ecosystem.” SBES 2020. <a
+href="https://doi.org/10.1145/3422392.3422445">doi:10.1145/3422392.3422445</a>
+[학회 단편 논문]</li>
 <li>Noda, A., Storey, M.-A., Forsgren, N., &amp; Greiler, M. “DevEx:
-What Actually Drives Productivity.” <em>ACM Queue</em>, 2023.
-doi:10.1145/3595878 [실무자 대상 잡지 기고]</li>
+What Actually Drives Productivity.” <em>ACM Queue</em>, 2023. <a
+href="https://doi.org/10.1145/3595878">doi:10.1145/3595878</a> [실무자
+대상 잡지 기고]</li>
 <li>Parker, G., Van Alstyne, M., &amp; Jiang, X. “Platform Ecosystems:
-How Developers Invert the Firm.” <em>MIS Quarterly</em>, 2017.
-doi:10.25300/MISQ/2017/41.1.13</li>
-<li>Peralta et al. MSR 2026 게재 승인. arXiv:2605.22534</li>
+How Developers Invert the Firm.” <em>MIS Quarterly</em>, 2017. <a
+href="https://doi.org/10.25300/MISQ/2017/41.1.13">doi:10.25300/MISQ/2017/41.1.13</a></li>
+<li>Peralta et al. MSR 2026 게재 승인. <a
+href="https://arxiv.org/abs/2605.22534">arXiv:2605.22534</a></li>
 <li>Robillard, M. P. “What Makes APIs Hard to Learn? Answers from
-Developers.” <em>IEEE Software</em>, 2009. doi:10.1109/MS.2009.193</li>
+Developers.” <em>IEEE Software</em>, 2009. <a
+href="https://doi.org/10.1109/MS.2009.193">doi:10.1109/MS.2009.193</a></li>
 <li>Rogers, E. M. <em>Diffusion of Innovations</em> (5th ed.). Free
-Press, 2003. [단행본]</li>
-<li>Sarkar, A. &amp; Drosos, I. PPIG 2025. arXiv:2506.23253</li>
+Press, 2003. ISBN 978-0-7432-2209-9. <a
+href="https://openlibrary.org/isbn/9780743222099"
+class="uri">https://openlibrary.org/isbn/9780743222099</a> [단행본]</li>
+<li>Sarkar, A. &amp; Drosos, I. PPIG 2025. <a
+href="https://arxiv.org/abs/2506.23253">arXiv:2506.23253</a></li>
 <li>Scaffidi, C., Shaw, M., &amp; Myers, B. “Estimating the Numbers of
-End Users and End User Programmers.” VL/HCC 2005.
-doi:10.1109/VLHCC.2005.34</li>
-<li>Steinmacher, I. et al. CSCW 2015. doi:10.1145/2675133.2675215 · ICSE
-2018. doi:10.1145/3180155.3180208</li>
-<li>Thorgeirsson et al. CHI 2026. doi:10.1145/3772318.3791666</li>
+End Users and End User Programmers.” VL/HCC 2005. <a
+href="https://doi.org/10.1109/VLHCC.2005.34">doi:10.1109/VLHCC.2005.34</a></li>
+<li>Steinmacher, I. et al. CSCW 2015. <a
+href="https://doi.org/10.1145/2675133.2675215">doi:10.1145/2675133.2675215</a>
+· ICSE 2018. <a
+href="https://doi.org/10.1145/3180155.3180208">doi:10.1145/3180155.3180208</a></li>
+<li>Thorgeirsson et al. CHI 2026. <a
+href="https://doi.org/10.1145/3772318.3791666">doi:10.1145/3772318.3791666</a></li>
 <li>Tushman, M. L. “Special Boundary Roles in the Innovation Process.”
-<em>Administrative Science Quarterly</em>, 1977.
-doi:10.2307/2392402</li>
-<li>Virk, Y. &amp; Liu, D. VL/HCC 2025. arXiv:2508.06484</li>
-<li>Wenger, E. <em>Communities of Practice</em>. Cambridge University
-Press, 1998 · Wenger, McDermott &amp; Snyder, <em>Cultivating
-Communities of Practice</em>, 2002 · Wenger-Trayner, E. &amp; B. 소개문,
-2015. [단행본·소개문]</li>
+<em>Administrative Science Quarterly</em>, 1977. <a
+href="https://doi.org/10.2307/2392402">doi:10.2307/2392402</a></li>
+<li>Virk, Y. &amp; Liu, D. VL/HCC 2025. <a
+href="https://arxiv.org/abs/2508.06484">arXiv:2508.06484</a></li>
+<li>Wenger, E. <em>Communities of Practice: Learning, Meaning, and
+Identity</em>. Cambridge University Press, 1998. <a
+href="https://doi.org/10.1017/CBO9780511803932">doi:10.1017/CBO9780511803932</a>
+· Wenger, E., McDermott, R. &amp; Snyder, W. M. <em>Cultivating
+Communities of Practice</em>. Harvard Business School Press, 2002. ISBN
+978-1-57851-330-7. <a href="https://openlibrary.org/isbn/9781578513307"
+class="uri">https://openlibrary.org/isbn/9781578513307</a> ·
+Wenger-Trayner, E. &amp; B. “Introduction to communities of practice.”
+2015. <a
+href="https://www.wenger-trayner.com/introduction-to-communities-of-practice/"
+class="uri">https://www.wenger-trayner.com/introduction-to-communities-of-practice/</a>
+[단행본·소개문]</li>
 <li>Yang, J. et al. “SWE-agent: Agent-Computer Interfaces Enable
-Automated Software Engineering.” NeurIPS 2024. arXiv:2405.15793</li>
+Automated Software Engineering.” NeurIPS 2024. <a
+href="https://arxiv.org/abs/2405.15793">arXiv:2405.15793</a></li>
 </ul>
 </section>
 <section id="ch022.xhtml_동료-검토-전-논문-프리프린트" class="level3">
 <h3>동료 검토 전 논문 (프리프린트)</h3>
 <ul>
-<li>Ali et al. 2026. arXiv:2606.17887</li>
-<li>Chatlatanagulchai et al. 2025. arXiv:2511.12884</li>
+<li>Ali et al. 2026. <a
+href="https://arxiv.org/abs/2606.17887">arXiv:2606.17887</a></li>
+<li>Chatlatanagulchai et al. 2025. <a
+href="https://arxiv.org/abs/2511.12884">arXiv:2511.12884</a></li>
 <li>Dell’Acqua, F. et al. P&amp;G 현장 실험. NBER Working Paper w33641,
-2025. doi:10.3386/w33641 [워킹페이퍼]</li>
-<li>Gloaguen et al. 2026. arXiv:2602.11988</li>
-<li>Guo et al. 2025. arXiv:2509.25292</li>
-<li>Hasan et al. (Stack Overflow 이탈 요인) 2024. arXiv:2409.17473</li>
-<li>Hasan et al. (MCP 도구 설명 스멜) 2026. arXiv:2602.14878</li>
-<li>Hasan et al. (MCP 서버 취약점, 2026-04 개정판) arXiv:2506.13538</li>
+2025. <a href="https://doi.org/10.3386/w33641">doi:10.3386/w33641</a>
+[워킹페이퍼]</li>
+<li>Gloaguen et al. 2026. <a
+href="https://arxiv.org/abs/2602.11988">arXiv:2602.11988</a></li>
+<li>Guo et al. 2025. <a
+href="https://arxiv.org/abs/2509.25292">arXiv:2509.25292</a></li>
+<li>Hasan et al. (Stack Overflow 이탈 요인) 2024. <a
+href="https://arxiv.org/abs/2409.17473">arXiv:2409.17473</a></li>
+<li>Hasan et al. (MCP 도구 설명 스멜) 2026. <a
+href="https://arxiv.org/abs/2602.14878">arXiv:2602.14878</a></li>
+<li>Hasan et al. (MCP 서버 취약점, 2026-04 개정판) <a
+href="https://arxiv.org/abs/2506.13538">arXiv:2506.13538</a></li>
 <li>Hsieh et al. “Tool Documentation Enables Zero-Shot Tool-Usage with
-Large Language Models.” 2023. arXiv:2308.00675</li>
-<li>Ibrahim &amp; Zaki. 2026. arXiv:2609.12447</li>
-<li>METR. 2025. arXiv:2507.09089</li>
-<li>Peng et al. 2023. arXiv:2302.06590</li>
-<li>Pimenova et al. 2025. arXiv:2509.12491</li>
-<li>Sahni, R. &amp; Chilton, L. 2025. arXiv:2502.13281 [n=10]</li>
-<li>Watanabe et al. 2025. arXiv:2509.14745</li>
+Large Language Models.” 2023. <a
+href="https://arxiv.org/abs/2308.00675">arXiv:2308.00675</a></li>
+<li>Ibrahim &amp; Zaki. 2026. <a
+href="https://arxiv.org/abs/2609.12447">arXiv:2609.12447</a></li>
+<li>METR. 2025. <a
+href="https://arxiv.org/abs/2507.09089">arXiv:2507.09089</a></li>
+<li>Peng et al. 2023. <a
+href="https://arxiv.org/abs/2302.06590">arXiv:2302.06590</a></li>
+<li>Pimenova et al. 2025. <a
+href="https://arxiv.org/abs/2509.12491">arXiv:2509.12491</a></li>
+<li>Sahni, R. &amp; Chilton, L. 2025. <a
+href="https://arxiv.org/abs/2502.13281">arXiv:2502.13281</a> [n=10]</li>
+<li>Watanabe et al. 2025. <a
+href="https://arxiv.org/abs/2509.14745">arXiv:2509.14745</a></li>
 </ul>
 </section>
 <section id="ch022.xhtml_커뮤니티-개인-게시물토론-커뮤니티-의견-라벨"
 class="level3">
 <h3>커뮤니티 (개인 게시물·토론, 커뮤니티 의견 라벨)</h3>
+<p>본문에서 실제로 인용한 게시물·토론만 글마다 한 항목으로 적었다.
+Hacker News·Reddit·GeekNews는 스레드 단위로 적고, 본문이 인용한 댓글
+작성자를 함께 표기했다. 스레드 제목·작성자·날짜는 Hacker News 공식 API와
+각 사이트 원문 기준이다.</p>
+<p><strong>Bluesky</strong></p>
 <ul>
-<li>Bluesky 게시물: David Neal(2023-07-25)
-https://bsky.app/profile/reverentgeek.com/post/3k3e5xsww462i · Raymond
-Camden(2026-05-27)
-https://bsky.app/profile/raymondcamden.com/post/3mmtqffq6kn2c · Rachel
-Andrew(2026-09-22)
-https://bsky.app/profile/rachelandrew.co.uk/post/3mw3tuka6lc2x · Jake
-Archibald(2026-04)
-https://bsky.app/profile/jakearchibald.com/post/3mivbtlyms226 · Jen
-Looper(2025-12)
-https://bsky.app/profile/jenlooper.com/post/3majaj3ayw22n ·
-cameron.stream
-https://bsky.app/profile/cameron.stream/post/3ltfe5m2il22z ·
-https://bsky.app/profile/cameron.stream/post/3moek7r7iia24 · Dona
-Sarkar(2025-01-17)
-https://bsky.app/profile/donasarkar.bsky.social/post/3lfwffaeg6s2s ·
-Kelsey Hightower(2025-07-22)
-https://bsky.app/profile/kelseyhightower.com/post/3lulaw5tnfs2n · Fly.io
-채용 공지(2025-06-11) · “every devrel position includes AI
-cheerleading”(2025-09)</li>
-<li>Hacker News 스레드 (https://news.ycombinator.com/item?id=…):
-48774195, 40904951, 45571058, 43999125, 48282709, 48410589, 41439983,
-46527950, 47208398, 46673809, 47182659, 48095550, 43613079, 44991082,
-49744416</li>
-<li>Reddit r/devrel 토론.
-https://www.reddit.com/r/devrel/comments/1vzh2zb/death_of_the_developer_advocate/
-외 (2026-06~09)</li>
-<li>GeekNews. Weekly #350 https://news.hada.io/weekly/202612 ·
-https://news.hada.io/topic?id=21499 ·
-https://news.hada.io/topic?id=19936 ·
-https://news.hada.io/topic?id=22265</li>
-<li>velog. 비개발자 대상 바이브코딩 온라인 세미나 기획 후기(2025-08)
-https://velog.io/<span class="citation"
-data-cites="jwclare95/데브렐-바이브코딩-개발자-온라인-행사-기획-후기">@jwclare95/데브렐-바이브코딩-개발자-온라인-행사-기획-후기</span>
-· OKKY 개발자 일자리 토론회 참석 후기(2025-06) https://velog.io/<span
-class="citation"
-data-cites="jwclare95/OKKY-개발자-일자리-심층-토론회-참석-후기">@jwclare95/OKKY-개발자-일자리-심층-토론회-참석-후기</span></li>
-<li>X. DevRel KR https://twitter.com/devrelkr · Jason Lemkin(2025-07)
-https://x.com/jasonlk/status/1946069562723897802</li>
+<li>Neal, David (reverentgeek.com). “My role has been eliminated”
+게시물. Bluesky, 2023-07-25. <a
+href="https://bsky.app/profile/reverentgeek.com/post/3k3e5xsww462i"
+class="uri">https://bsky.app/profile/reverentgeek.com/post/3k3e5xsww462i</a>
+[커뮤니티 의견]</li>
+<li>Camden, Raymond. Webflow 구조조정 해고와 다음 자리를 알린 게시물.
+Bluesky, 2026-05-27. <a
+href="https://bsky.app/profile/raymondcamden.com/post/3mmtqffq6kn2c"
+class="uri">https://bsky.app/profile/raymondcamden.com/post/3mmtqffq6kn2c</a>
+[커뮤니티 의견]</li>
+<li>Andrew, Rachel. Google DevRel 사이트용 AI 슬롭 콘텐츠 제안에 관한
+게시물. Bluesky, 2026-09-22. <a
+href="https://bsky.app/profile/rachelandrew.co.uk/post/3mw3tuka6lc2x"
+class="uri">https://bsky.app/profile/rachelandrew.co.uk/post/3mw3tuka6lc2x</a>
+[커뮤니티 의견]</li>
+<li>Archibald, Jake. developer.chrome.com 계정의 AI풍 답변에 관한
+게시물. Bluesky, 2026-04-07. <a
+href="https://bsky.app/profile/jakearchibald.com/post/3mivbtlyms226"
+class="uri">https://bsky.app/profile/jakearchibald.com/post/3mivbtlyms226</a>
+[커뮤니티 의견, 계정 운영 주체는 작성자 주장]</li>
+<li>Looper, Jen. “push back on demands to use AI for all the things”
+게시물. Bluesky, 2025-12-21. <a
+href="https://bsky.app/profile/jenlooper.com/post/3majaj3ayw22n"
+class="uri">https://bsky.app/profile/jenlooper.com/post/3majaj3ayw22n</a>
+[커뮤니티 의견]</li>
+<li>cameron.stream. Letta “founding devrel engineer” 합류 게시물.
+Bluesky, 2025-07-07. <a
+href="https://bsky.app/profile/cameron.stream/post/3ltfe5m2il22z"
+class="uri">https://bsky.app/profile/cameron.stream/post/3ltfe5m2il22z</a>
+[커뮤니티 의견]</li>
+<li>cameron.stream. “My title has changed from developer relations to
+Member of Technical Staff” 게시물. Bluesky, 2026-06-16. <a
+href="https://bsky.app/profile/cameron.stream/post/3moek7r7iia24"
+class="uri">https://bsky.app/profile/cameron.stream/post/3moek7r7iia24</a>
+[커뮤니티 의견]</li>
+<li>Sarkar, Dona. “AI Power Users DevRel team”을 맡게 됐다는 게시물.
+Bluesky, 2025-01-17. <a
+href="https://bsky.app/profile/donasarkar.bsky.social/post/3lfwffaeg6s2s"
+class="uri">https://bsky.app/profile/donasarkar.bsky.social/post/3lfwffaeg6s2s</a>
+[커뮤니티 의견]</li>
+<li>Hightower, Kelsey. 클라우드 네이티브 DevRel의 AI 인프라 전환 기회를
+알린 게시물. Bluesky, 2025-07-22. <a
+href="https://bsky.app/profile/kelseyhightower.com/post/3lulaw5tnfs2n"
+class="uri">https://bsky.app/profile/kelseyhightower.com/post/3lulaw5tnfs2n</a>
+[커뮤니티 의견]</li>
+<li>anniesexton.com (Fly.io). “Fly.io is hiring a WRITER! … Is it
+DevRel? Not exactly.” 채용 공지. Bluesky, 2025-06-11. <a
+href="https://bsky.app/profile/anniesexton.com/post/3lre7h4xzt22m"
+class="uri">https://bsky.app/profile/anniesexton.com/post/3lre7h4xzt22m</a>
+[커뮤니티 의견]</li>
+<li>cheeseplus.biz. “every devrel position includes AI cheerleading at
+this point” 게시물. Bluesky, 2025-09-11. <a
+href="https://bsky.app/profile/cheeseplus.biz/post/3lykvdmwiqk2p"
+class="uri">https://bsky.app/profile/cheeseplus.biz/post/3lykvdmwiqk2p</a>
+[커뮤니티 의견]</li>
+</ul>
+<p><strong>Hacker News</strong></p>
+<ul>
+<li>sixhobbits(제출). “Goodebye Forever Probably: Why I’m leaving
+developer relations”(원 제출 제목 표기 그대로) 토론. Hacker News,
+2026-07-03. 본문 인용 댓글: zulux, fragmede, hilariously. <a
+href="https://news.ycombinator.com/item?id=48774195"
+class="uri">https://news.ycombinator.com/item?id=48774195</a> [커뮤니티
+의견]</li>
+<li>paulgb(제출). “DevRel’s Death as Zero Interest Rate Phenomenon”
+토론. Hacker News, 2024-07-08. 본문 인용 댓글: xena. <a
+href="https://news.ycombinator.com/item?id=40904951"
+class="uri">https://news.ycombinator.com/item?id=40904951</a> [커뮤니티
+의견]</li>
+<li>Jerry2(제출). “Stack Overflow is almost dead” 토론. Hacker News,
+2025-05-15. 본문 인용 댓글: bloppe. <a
+href="https://news.ycombinator.com/item?id=43999125"
+class="uri">https://news.ycombinator.com/item?id=43999125</a> [커뮤니티
+의견]</li>
+<li>geerlingguy(제출). “Stack Overflow’s forum is dead but the company’s
+still kicking” 토론. Hacker News, 2026-05-26. 본문 인용 댓글:
+joshstrange, nitwit005, jmyeet. <a
+href="https://news.ycombinator.com/item?id=48282709"
+class="uri">https://news.ycombinator.com/item?id=48282709</a> [커뮤니티
+의견]</li>
+<li>sunshine-o(제출). “Ask HN: Is the web for machines (/llm.txt) the
+one we wished we had as humans?” 토론. Hacker News, 2026-06-05. 본문
+인용 댓글: HermanMartinus, 0123456789ABCDE, nickserv, m4tthumphrey,
+solumos. <a href="https://news.ycombinator.com/item?id=48410589"
+class="uri">https://news.ycombinator.com/item?id=48410589</a> [커뮤니티
+의견]</li>
+<li>kevlened(제출). “Creators of Tailwind laid off 75% of their
+engineering team” 토론. Hacker News, 2026-01-07. 본문 인용 댓글:
+zdragnar, stephenson, csomar, Alex2037. <a
+href="https://news.ycombinator.com/item?id=46527950"
+class="uri">https://news.ycombinator.com/item?id=46527950</a> [커뮤니티
+의견]</li>
+<li>ejholmes(제출). “When does MCP make sense vs CLI?” 토론. Hacker
+News, 2026-03-01. 본문 인용 댓글: umairnadeem123, nvdnadj92, tartieret.
+<a href="https://news.ycombinator.com/item?id=47208398"
+class="uri">https://news.ycombinator.com/item?id=47208398</a> [커뮤니티
+의견]</li>
+<li>ivcatcher. “Show HN: I quit coding years ago. AI brought me back.”
+Hacker News, 2026-01-19. 본문 인용 댓글: mjburgess, anonymous908213,
+mettamage, rob(진위 의심). <a
+href="https://news.ycombinator.com/item?id=46673809"
+class="uri">https://news.ycombinator.com/item?id=46673809</a> [커뮤니티
+의견, 진위 확인 필요]</li>
+<li>nottorp(제출). “Vibe coded Lovable-hosted app littered with basic
+flaws exposed 18K users” 토론(The Register 기사). Hacker News,
+2026-02-27. 본문 인용 댓글: carlgreene. <a
+href="https://news.ycombinator.com/item?id=47182659"
+class="uri">https://news.ycombinator.com/item?id=47182659</a> [커뮤니티
+의견]</li>
+<li>itunpredictable(제출). “Will vibe coding end like the maker
+movement?” 토론. Hacker News, 2026-02-26. 본문 인용 댓글: roxolotl, a1o.
+<a href="https://news.ycombinator.com/item?id=47167931"
+class="uri">https://news.ycombinator.com/item?id=47167931</a> [커뮤니티
+의견]</li>
+<li>ThailandJohn. “Show HN: TheAuditor – Offline security scanner for
+AI-generated code”의 작성자 댓글. Hacker News, 2025-09-08. <a
+href="https://news.ycombinator.com/item?id=45166388"
+class="uri">https://news.ycombinator.com/item?id=45166388</a> [커뮤니티
+의견]</li>
+<li>BetterToBest. “Show HN: Declare AI – open standard for AI content
+disclosure”의 작성자 댓글. Hacker News, 2026-02-25. <a
+href="https://news.ycombinator.com/item?id=47146362"
+class="uri">https://news.ycombinator.com/item?id=47146362</a> [커뮤니티
+의견]</li>
+<li>cloudking(제출). “Shopify CEO:”AI usage is now a baseline
+expectation”” 토론. Hacker News, 2025-04-07. 본문 인용 댓글: serial_dev.
+<a href="https://news.ycombinator.com/item?id=43613079"
+class="uri">https://news.ycombinator.com/item?id=43613079</a> [커뮤니티
+의견]</li>
+<li>ed1024(제출). “Coinbase CEO explains why he fired engineers who
+didn’t try AI immediately” 토론(TechCrunch 기사). Hacker News,
+2025-08-22. 본문 인용 댓글: hluska, biophysboy(기사 인용). <a
+href="https://news.ycombinator.com/item?id=44991082"
+class="uri">https://news.ycombinator.com/item?id=44991082</a> [커뮤니티
+의견]</li>
+<li>levhawk. “Uber’s COO says it’s getting harder to justify money spent
+on tokenmaxxing” 토론의 댓글. Hacker News, 2026-05-25. <a
+href="https://news.ycombinator.com/item?id=48270456"
+class="uri">https://news.ycombinator.com/item?id=48270456</a> [커뮤니티
+의견]</li>
+<li>y0eswddl. “Fear of layoffs what should I do?” 토론의 댓글. Hacker
+News, 2026-05-13. <a
+href="https://news.ycombinator.com/item?id=48124504"
+class="uri">https://news.ycombinator.com/item?id=48124504</a> [커뮤니티
+의견]</li>
+<li>esafak. “Skillburst: Sync Skills with Team” 토론의 댓글. Hacker
+News, 2026-07-11. <a
+href="https://news.ycombinator.com/item?id=48869038"
+class="uri">https://news.ycombinator.com/item?id=48869038</a> [커뮤니티
+의견]</li>
+<li>0x63_Problems(제출). “Show HN: Ax-check.com – Can agents use your
+product?” 토론. Hacker News, 2026-09-17(인용 댓글은 2026-09-18). 본문
+인용 댓글: xena, cyanydeez. <a
+href="https://news.ycombinator.com/item?id=49744416"
+class="uri">https://news.ycombinator.com/item?id=49744416</a> [커뮤니티
+의견]</li>
+</ul>
+<p><strong>Reddit (r/devrel)</strong></p>
+<ul>
+<li>aspleenic(게시). “Death of the Developer Advocate” 토론. Reddit
+r/devrel, 2026-08-27. 본문 인용 댓글: Daria-Dovzhikova(2026-09-14). <a
+href="https://www.reddit.com/r/devrel/comments/1vzh2zb/death_of_the_developer_advocate/"
+class="uri">https://www.reddit.com/r/devrel/comments/1vzh2zb/death_of_the_developer_advocate/</a>
+[커뮤니티 의견]</li>
+<li>Deep_Ad1959. “I think DevRel has a channel problem, not a content
+problem.” Reddit r/devrel, 2026-06-07(글 말미 AI 작성 표기). 본문 인용
+댓글: uncertainschrodinger(2026-06-07),
+Competitive_Sir_8161(2026-07-08). <a
+href="https://www.reddit.com/r/devrel/comments/1tzm26k/i_think_devrel_has_a_channel_problem_not_a/"
+class="uri">https://www.reddit.com/r/devrel/comments/1tzm26k/i_think_devrel_has_a_channel_problem_not_a/</a>
+[커뮤니티 의견]</li>
+<li>“SWE -&gt; DevRel? … How has the role evolved with AI?” 토론(게시자
+미확인). Reddit r/devrel, 2026-09. 본문 인용 댓글: aspleenic(모더레이터,
+2026-09-18). <a
+href="https://www.reddit.com/r/devrel/comments/1wjphiy/swe_devrel/"
+class="uri">https://www.reddit.com/r/devrel/comments/1wjphiy/swe_devrel/</a>
+[커뮤니티 의견]</li>
+</ul>
+<p><strong>GeekNews·velog (국내)</strong></p>
+<ul>
+<li>GeekNews Weekly 편집자. “[GN#350] AI 시대의 개발 생태계는 이렇게
+만들어 가는 겁니다.” GeekNews Weekly #350, 2026-03(주간 범위 03-16~22,
+편집자 실명 미표기). <a href="https://news.hada.io/weekly/202612"
+class="uri">https://news.hada.io/weekly/202612</a> [커뮤니티 의견]</li>
+<li>sltyphoon. “[개발일지] 비개발자가 바이브코딩으로 소울라이크 게임을
+개발해보았습니다.” GeekNews Show GN, 2025-06-17. 본문 인용 댓글:
+sltyphoon(06-20·06-24), dooee(06-18). <a
+href="https://news.hada.io/topic?id=21499"
+class="uri">https://news.hada.io/topic?id=21499</a> [커뮤니티 의견]</li>
+<li>spilist2. “Vibe 코딩과 개발자 종말론, 주니어 개발자의 성장 방향에
+대한 생각” 토론의 댓글. GeekNews, 2025-03-25. <a
+href="https://news.hada.io/topic?id=19936"
+class="uri">https://news.hada.io/topic?id=19936</a> [커뮤니티 의견]</li>
+<li>GeekNews. “바이브 코드는 레거시 코드임”(해외 글 번역 요약) 토론.
+GeekNews, 2025-08-02. 본문 인용 댓글: kgun9, hackerst. <a
+href="https://news.hada.io/topic?id=22265"
+class="uri">https://news.hada.io/topic?id=22265</a> [커뮤니티 의견]</li>
+<li>jwclare95. 데브렐 바이브코딩 개발자 온라인 행사 기획 후기. velog,
+2025-08-01. <a
+href="https://velog.io/@jwclare95/데브렐-바이브코딩-개발자-온라인-행사-기획-후기"
+class="uri">https://velog.io/@jwclare95/데브렐-바이브코딩-개발자-온라인-행사-기획-후기</a>
+[커뮤니티 의견]</li>
+<li>jwclare95. OKKY 개발자 일자리 심층 토론회 참석 후기. velog,
+2025-06-01. <a
+href="https://velog.io/@jwclare95/OKKY-개발자-일자리-심층-토론회-참석-후기"
+class="uri">https://velog.io/@jwclare95/OKKY-개발자-일자리-심층-토론회-참석-후기</a>
+[커뮤니티 의견, 참관기]</li>
+</ul>
+<p><strong>X</strong></p>
+<ul>
+<li>DevRel KR. X 계정(개별 게시물이 아닌 계정 소개로 인용). <a
+href="https://twitter.com/devrelkr"
+class="uri">https://twitter.com/devrelkr</a> [커뮤니티, 계정 소개 원문
+미대조]</li>
+<li>Lemkin, Jason (SaaStr). “<span class="citation"
+data-cites="Replit">@Replit</span> goes rogue during a code freeze and
+shutdown and deletes our entire database” 게시물. X, 2025-07-18. <a
+href="https://x.com/jasonlk/status/1946069562723897802"
+class="uri">https://x.com/jasonlk/status/1946069562723897802</a>
+[커뮤니티 의견]</li>
 </ul>
 </section>
 </section>
