@@ -57,19 +57,19 @@ body{background:var(--bg);color:var(--text);font-family:'Pretendard','Apple SD G
 .stat-l{color:var(--muted);font-size:clamp(.85rem,1.4vw,1rem);line-height:1.6}
 .deck-fig{margin:.2rem auto 0;width:100%;text-align:center}
 .deck-fig img{display:block;margin:0 auto;max-width:100%;max-height:calc(100vh - 19rem);width:auto;height:auto;background:#fbf7f2;border-radius:12px;padding:8px}
-.split{display:grid;grid-template-columns:.9fr 1.1fr;gap:2.4rem;align-items:center}
+div.split{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:3rem;align-items:center;width:100%}
 .split-cap{color:var(--cream);font-size:clamp(.95rem,1.6vw,1.1rem);line-height:1.6;margin-top:.4rem}
-.deck-fig.tall img{max-height:calc(100vh - 6rem)}
+.deck-fig.tall img{max-height:calc(100vh - 7rem);width:100%;object-fit:contain}
 .deck-fig figcaption{color:var(--dim);font-size:.88rem;margin-top:.6rem}
 .easy{margin-top:1.3rem;max-width:66rem;background:#2a1d38;border:1px solid #4a3a5e;border-left:4px solid var(--coral);
  border-radius:10px;padding:.85rem 1.1rem;font-size:clamp(.95rem,1.7vw,1.14rem);line-height:1.65;color:var(--text)}
 .easy-k{display:inline-block;color:var(--coral);font-weight:800;font-size:.8em;letter-spacing:.06em;margin-right:.7rem}
-.slide:has(.easy) .deck-fig img{max-height:calc(100vh - 25rem)}
+.slide:has(.easy) .deck-fig:not(.tall) img{max-height:calc(100vh - 25rem)}
 .page-num{position:absolute;top:1.5rem;right:1.8rem;color:var(--dim);font-size:.8rem}
 .page-section{position:absolute;top:1.5rem;left:1.8rem;color:var(--dim);font-size:.8rem;letter-spacing:.08em}
 .page-footer{position:absolute;bottom:1.2rem;left:1.8rem;right:1.8rem;display:flex;justify-content:space-between;gap:1rem;color:#5a4d68;font-size:.75rem}
 .cover .page-num{top:3.5rem;right:3.6rem}.cover .page-section{top:3.5rem;left:3.6rem}.cover .page-footer{bottom:3.2rem;left:3.6rem;right:3.6rem}
-@media(max-width:900px){.grid-3,.grid-4{grid-template-columns:1fr}.div-wrap,.split{grid-template-columns:1fr}.deck-fig img,.deck-fig.tall img{max-height:none;width:100%}
+@media(max-width:900px){.grid-3,.grid-4{grid-template-columns:1fr}.div-wrap,div.split{grid-template-columns:1fr}.deck-fig img,.deck-fig.tall img{max-height:none;width:100%}
  .page-footer{display:none}.slide{min-height:auto;padding:2.4rem 1.1rem 3rem}.deck-table{display:block;overflow-x:auto}}
 @media print{body{height:auto;overflow:visible;background:#fff;color:#111}
  .slide{page-break-after:always;min-height:auto;border:none;background:#fff!important;color:#111}
