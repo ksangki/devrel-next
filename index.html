@@ -37,7 +37,7 @@ hr{border:0;border-top:1px solid var(--line);margin:2.4rem 0}
 </style>
 </head>
 <body>
-<div class="cover-hero"><img src="cover.png" alt="「DevRel Next — 코드 너머의 관계」 표지" /><div class="dl"><a href="epub/DevRel-Next-v1.3.1.epub">EPUB 내려받기</a><a href="BOOK.md">책 소개</a><a href="presentation/">발표자료</a><a href="https://github.com/ksangki/devrel-next">GitHub</a></div></div>
+<div class="cover-hero"><img src="cover.png" alt="「DevRel Next — 코드 너머의 관계」 표지" /><div class="dl"><a href="epub/DevRel-Next-v1.3.2.epub">EPUB 내려받기</a><a href="BOOK.md">책 소개</a><a href="presentation/">발표자료</a><a href="https://github.com/ksangki/devrel-next">GitHub</a></div></div>
 
 
 <p><span id="cover.xhtml"></span></p>
@@ -59,14 +59,14 @@ Page</a></li>
 <h1>DevRel Next</h1>
 <section id="ch001.xhtml_코드-너머의-관계" class="level2">
 <h2>코드 너머의 관계</h2>
-<p><strong>저자:</strong> 김상기 <strong>판본:</strong> v1.3.1 ·
+<p><strong>저자:</strong> 김상기 <strong>판본:</strong> v1.3.2 ·
 2026-09-26</p>
 <hr />
 </section>
 <section id="ch001.xhtml_판권" class="level2">
 <h2>판권</h2>
 <p><strong>DevRel Next — 코드 너머의 관계</strong>
-<strong>판본:</strong> v1.3.1 <strong>발행일:</strong> 2026-09-26
+<strong>판본:</strong> v1.3.2 <strong>발행일:</strong> 2026-09-26
 <strong>저자:</strong> 김상기 <strong>식별자:</strong>
 urn:uuid:2e3ab927-3a44-4ede-b169-e0253729973c</p>
 <p>이 판본은 저자 피드백(결론 세우기·쉽게 풀어쓰기·공개 자료 보강, 10장
@@ -5362,83 +5362,79 @@ class="level1">
 <section id="ch019.xhtml_b-1.-무엇을-적을까" class="level2">
 <h2>B-1. 무엇을 적을까</h2>
 <ul>
-<li><label>☐ <strong>모델이 모르는 것부터 적었는가.</strong> 그 제품만의
-비표준 규칙, 최신 API, 폐기된 API를 먼저 적는다. 컨텍스트 파일은 비표준
-관행을 적었을 때 효과를 냈다(Gloaguen 등, 프리프린트).</label></li>
-<li><label>☐ <strong>폐기된 방식을 분명히 막았는가.</strong> 모델이 배운
+<li>✓ <strong>모델이 모르는 것부터 적었는가.</strong> 그 제품만의 비표준
+규칙, 최신 API, 폐기된 API를 먼저 적는다. 컨텍스트 파일은 비표준 관행을
+적었을 때 효과를 냈다(Gloaguen 등, 프리프린트).</li>
+<li>✓ <strong>폐기된 방식을 분명히 막았는가.</strong> 모델이 배운
 자료에는 옛 예제가 남아 있다. “이것 대신 저것을 쓰라”는 지시문 한 줄이
-그 기억을 바로잡는다(Stripe llms.txt 지시문, 2차 인용).</label></li>
-<li><label>☐ <strong>저장소 개요를 되풀이하지 않았는가.</strong> 개요
-위주의 컨텍스트 파일은 성공률을 높이지 못했다. 추론 비용만
-늘렸다(Gloaguen 등, 프리프린트).</label></li>
-<li><label>☐ <strong>도구 설명에 목적과 인자를 분명히 적었는가.</strong>
-MCP 도구 설명의 56%는 목적조차 밝히지 않았다. 모델은 이 설명을 보고
-도구와 인자를 고른다(Hasan 등, 프리프린트).</label></li>
-<li><label>☐ <strong>길게 쓰는 것과 잘 쓰는 것을 구분했는가.</strong>
-설명을 보강하면 성공률은 조금 오른다. 하지만 실행 단계가 크게 늘 수
-있다(Hasan 등, 프리프린트).</label></li>
+그 기억을 바로잡는다(Stripe llms.txt 지시문, 2차 인용).</li>
+<li>✓ <strong>저장소 개요를 되풀이하지 않았는가.</strong> 개요 위주의
+컨텍스트 파일은 성공률을 높이지 못했다. 추론 비용만 늘렸다(Gloaguen 등,
+프리프린트).</li>
+<li>✓ <strong>도구 설명에 목적과 인자를 분명히 적었는가.</strong> MCP
+도구 설명의 56%는 목적조차 밝히지 않았다. 모델은 이 설명을 보고 도구와
+인자를 고른다(Hasan 등, 프리프린트).</li>
+<li>✓ <strong>길게 쓰는 것과 잘 쓰는 것을 구분했는가.</strong> 설명을
+보강하면 성공률은 조금 오른다. 하지만 실행 단계가 크게 늘 수 있다(Hasan
+등, 프리프린트).</li>
 </ul>
 </section>
 <section id="ch019.xhtml_b-2.-어떻게-건넬까" class="level2">
 <h2>B-2. 어떻게 건넬까</h2>
 <ul>
-<li><label>☐ <strong>같은 내용을 마크다운으로 받을 수 있는가.</strong>
-페이지 주소에 <code>.md</code>를 붙이는 방식이 있다.
+<li>✓ <strong>같은 내용을 마크다운으로 받을 수 있는가.</strong> 페이지
+주소에 <code>.md</code>를 붙이는 방식이 있다.
 <code>Accept: text/markdown</code> 요청에 마크다운을 돌려주는 방식도
-있다(Stripe 사례, 커뮤니티 관행).</label></li>
-<li><label>☐ <strong>llms.txt를 두었다면 기대치를 낮췄는가.</strong>
-2026년 9월 시점에 llms.txt는 아직 제안이다. 검색 노출을 높이는
-신호로서는 회의적인 증언이 많다. 코딩 에이전트가 문서를 직접 가져가는
-경우와는 나눠서 판단하자.</label></li>
-<li><label>☐ <strong>MCP 서버가 필요한 경우인가.</strong> 두 경우에 특히
-쓸모가 있다. 방대한 문서를 에이전트가 필요한 만큼만 가져가야 할 때,
-개발자가 아닌 사용자가 업무 도구를 AI에 연결하려 할 때다(커뮤니티
-의견).</label></li>
-<li><label>☐ <strong>에이전트가 찾을 수 있는 목록이 있는가.</strong>
-스킬이나 도구를 기계가 읽을 수 있는 목록으로 공개했는가(Stripe
-<code>/.well-known/skills/index.json</code> 사례).</label></li>
+있다(Stripe 사례, 커뮤니티 관행).</li>
+<li>✓ <strong>llms.txt를 두었다면 기대치를 낮췄는가.</strong> 2026년 9월
+시점에 llms.txt는 아직 제안이다. 검색 노출을 높이는 신호로서는 회의적인
+증언이 많다. 코딩 에이전트가 문서를 직접 가져가는 경우와는 나눠서
+판단하자.</li>
+<li>✓ <strong>MCP 서버가 필요한 경우인가.</strong> 두 경우에 특히 쓸모가
+있다. 방대한 문서를 에이전트가 필요한 만큼만 가져가야 할 때, 개발자가
+아닌 사용자가 업무 도구를 AI에 연결하려 할 때다(커뮤니티 의견).</li>
+<li>✓ <strong>에이전트가 찾을 수 있는 목록이 있는가.</strong> 스킬이나
+도구를 기계가 읽을 수 있는 목록으로 공개했는가(Stripe
+<code>/.well-known/skills/index.json</code> 사례).</li>
 </ul>
 </section>
 <section id="ch019.xhtml_b-3.-보안과-유지보수" class="level2">
 <h2>B-3. 보안과 유지보수</h2>
 <ul>
-<li><label>☐ <strong>보안 요구를 적었는가.</strong> 분석된 컨텍스트 파일
-가운데 보안 요구를 적은 것은 14.8%였다(Chatlatanagulchai 등,
-프리프린트).</label></li>
-<li><label>☐ <strong>MCP 서버를 점검했는가.</strong> 오픈소스 MCP 서버의
+<li>✓ <strong>보안 요구를 적었는가.</strong> 분석된 컨텍스트 파일 가운데
+보안 요구를 적은 것은 14.8%였다(Chatlatanagulchai 등, 프리프린트).</li>
+<li>✓ <strong>MCP 서버를 점검했는가.</strong> 오픈소스 MCP 서버의
 일부에서 일반 취약점과 도구 오염(tool poisoning)이 발견됐다(Hasan 등,
-프리프린트). 공개 전에 점검 절차를 두자.</label></li>
-<li><label>☐ <strong>스킬과 지시문을 제품처럼 다루는가.</strong> 버전을
-붙이고, 변경 이력을 남기고, 제품이 바뀔 때 함께 고친다. Google Cloud
-블로그의 표현으로는 “a skill is a living product, not a one-off
-document”다. 스킬을 한 번 쓰고 치울 문서로 두지 말고, 살아 있는 제품처럼
-계속 가꾸라는 뜻이다.</label></li>
+프리프린트). 공개 전에 점검 절차를 두자.</li>
+<li>✓ <strong>스킬과 지시문을 제품처럼 다루는가.</strong> 버전을 붙이고,
+변경 이력을 남기고, 제품이 바뀔 때 함께 고친다. Google Cloud 블로그의
+표현으로는 “a skill is a living product, not a one-off document”다.
+스킬을 한 번 쓰고 치울 문서로 두지 말고, 살아 있는 제품처럼 계속
+가꾸라는 뜻이다.</li>
 </ul>
 </section>
 <section id="ch019.xhtml_b-4.-측정" class="level2">
 <h2>B-4. 측정</h2>
 <ul>
-<li><label>☐ <strong>자기 로그부터 열어봤는가.</strong> 스스로 이름을
-밝힌 AI 클라이언트의 요청을 따로 모은다. 기계가 주로 찾는
-경로(<code>.md</code>, llms.txt 등)로 들어온 요청도 모은다. 정체를
-밝히지 않는 에이전트는 잡히지 않으니, 이 숫자는 최소치로
-읽는다.</label></li>
-<li><label>☐ <strong>벤더 수치를 인용할 때 단위를 적었는가.</strong>
-에이전트의 ’요청’과 사람의 ’페이지 로드’는 다른 단위다(4장의 Mintlify
-보고서).</label></li>
-<li><label>☐ <strong>분기마다 모델에게 직접 물어봤는가.</strong> 실제
-고객의 질문으로 여러 모델에 물어보고 답을 기록한다. 5장의 Karlsson은
-LLM에서 무엇이 먹히는지 재는 방법이 아직 “largely unsolved”라고 했다.
-대부분 풀리지 않았다는 뜻이다.</label></li>
+<li>✓ <strong>자기 로그부터 열어봤는가.</strong> 스스로 이름을 밝힌 AI
+클라이언트의 요청을 따로 모은다. 기계가 주로 찾는 경로(<code>.md</code>,
+llms.txt 등)로 들어온 요청도 모은다. 정체를 밝히지 않는 에이전트는
+잡히지 않으니, 이 숫자는 최소치로 읽는다.</li>
+<li>✓ <strong>벤더 수치를 인용할 때 단위를 적었는가.</strong> 에이전트의
+’요청’과 사람의 ’페이지 로드’는 다른 단위다(4장의 Mintlify 보고서).</li>
+<li>✓ <strong>분기마다 모델에게 직접 물어봤는가.</strong> 실제 고객의
+질문으로 여러 모델에 물어보고 답을 기록한다. 5장의 Karlsson은 LLM에서
+무엇이 먹히는지 재는 방법이 아직 “largely unsolved”라고 했다. 대부분
+풀리지 않았다는 뜻이다.</li>
 </ul>
 </section>
 <section id="ch019.xhtml_b-5.-마지막-점검" class="level2">
 <h2>B-5. 마지막 점검</h2>
 <ul>
-<li><label>☐ <strong>이 체크리스트를 다 채워도 성장이 보장되지 않는다는
-점을 팀과 나눴는가.</strong> 4장 끝에서 본 xena의 댓글을 기억하자.
-에이전트가 읽기 좋은 문서가 그것만으로 성장을 만든다는 증거는 2026년 9월
-시점에 아직 없다.</label></li>
+<li>✓ <strong>이 체크리스트를 다 채워도 성장이 보장되지 않는다는 점을
+팀과 나눴는가.</strong> 4장 끝에서 본 xena의 댓글을 기억하자. 에이전트가
+읽기 좋은 문서가 그것만으로 성장을 만든다는 증거는 2026년 9월 시점에
+아직 없다.</li>
 </ul>
 </section>
 </section>
