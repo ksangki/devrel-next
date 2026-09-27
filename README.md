@@ -10,6 +10,8 @@ DevRel을 했고 지금은 AX를 하는 저자의 조망서.
 
 ## 읽기
 
+**v1.4.0 개정:** 8장에 저자의 "먼저 가보기" 사례 추가 — LLM 위키 회의록을 Confluence로 나누는 팀 체계, Jev로 DEVOTEE 글의 AI 문체를 판정하고 deslop 스킬로 팀 문서를 다듬는 실험. 근거 과장 완화·AI 문형 교정. 발표자료 45장.
+
 **v1.3.4 개정:** 표지를 다리 삽화로 교체.
 
 **v1.3.3 개정:** 부록 B 체크리스트의 체크 표시를 없애고 일반 목록으로 정리.
@@ -24,9 +26,9 @@ DevRel을 했고 지금은 AX를 하는 저자의 조망서.
 
 
 - **웹 버전**: [ksangki.github.io/devrel-next](https://ksangki.github.io/devrel-next/)
-- **EPUB**: [`epub/DevRel-Next-v1.3.4.epub`](epub/DevRel-Next-v1.3.4.epub)
+- **EPUB**: [`epub/DevRel-Next-v1.4.0.epub`](epub/DevRel-Next-v1.4.0.epub)
 - **책 소개**: [BOOK.md](BOOK.md)
-- **발표 자료**: [1시간 발표용 슬라이드 44장](https://ksangki.github.io/devrel-next/presentation/) — 장마다 "쉽게 말하면" 비유 한 줄
+- **발표 자료**: [1시간 발표용 슬라이드 45장](https://ksangki.github.io/devrel-next/presentation/) — 장마다 "쉽게 말하면" 비유 한 줄
 
 ## 차례
 - 서문
@@ -61,6 +63,6 @@ DevRel을 했고 지금은 AX를 하는 저자의 조망서.
 
 ## 책 정보
 
-- 저자: 김상기 · v1.3.4 (밝은 쪽 전망·다양한 사례 보강판, 2026-09-26) · 그림 20점 · 표 19개 · 참고문헌 193항목(전부 링크) · 한국어 · EPUB 3 (epubcheck 검증)
+- 저자: 김상기 · v1.4.0 (밝은 쪽 전망·다양한 사례 보강판, 2026-09-26) · 그림 20점 · 표 19개 · 참고문헌 193항목(전부 링크) · 한국어 · EPUB 3 (epubcheck 검증)
 - 라이선스: [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ko)
 - 제작: [book-writer 하네스](https://github.com/tobyilee/book-writer) v1.11.0
