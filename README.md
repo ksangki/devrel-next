@@ -10,6 +10,8 @@ DevRel을 했고 지금은 AX를 하는 저자의 조망서.
 
 ## 읽기
 
+**v1.4.1 개정:** 문체 점검 — AI 문체 패턴 196곳 정리, 내용·수치 변경 없음.
+
 **v1.4.0 개정:** 8장에 저자의 "먼저 가보기" 사례 추가 — LLM 위키 회의록을 Confluence로 나누는 팀 체계, Jev로 DEVOTEE 글의 AI 문체를 판정하고 deslop 스킬로 팀 문서를 다듬는 실험. 근거 과장 완화·AI 문형 교정. 발표자료 45장.
 
 **v1.3.4 개정:** 표지를 다리 삽화로 교체.
@@ -26,7 +28,7 @@ DevRel을 했고 지금은 AX를 하는 저자의 조망서.
 
 
 - **웹 버전**: [ksangki.github.io/devrel-next](https://ksangki.github.io/devrel-next/)
-- **EPUB**: [`epub/DevRel-Next-v1.4.0.epub`](epub/DevRel-Next-v1.4.0.epub)
+- **EPUB**: [`epub/DevRel-Next-v1.4.1.epub`](epub/DevRel-Next-v1.4.1.epub)
 - **책 소개**: [BOOK.md](BOOK.md)
 - **발표 자료**: [1시간 발표용 슬라이드 45장](https://ksangki.github.io/devrel-next/presentation/) — 장마다 "쉽게 말하면" 비유 한 줄
 - **오프닝 영상**: [60초 모션그래픽](https://ksangki.github.io/devrel-next/media/opening.mp4) · 웹 버전 첫 화면에도 실려 있다
