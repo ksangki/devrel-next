@@ -29,6 +29,7 @@ DevRel을 했고 지금은 AX를 하는 저자의 조망서.
 - **EPUB**: [`epub/DevRel-Next-v1.4.0.epub`](epub/DevRel-Next-v1.4.0.epub)
 - **책 소개**: [BOOK.md](BOOK.md)
 - **발표 자료**: [1시간 발표용 슬라이드 45장](https://ksangki.github.io/devrel-next/presentation/) — 장마다 "쉽게 말하면" 비유 한 줄
+- **오프닝 영상**: [60초 모션그래픽](https://ksangki.github.io/devrel-next/media/opening.mp4) · 웹 버전 첫 화면에도 실려 있다
 
 ## 차례
 - 서문
